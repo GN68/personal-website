@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import GalleryView from '@/views/GalleryView.vue'
 import GalleryItemView from '@/views/GalleryItemView.vue'
+import NotFoundView from '@/views/NotFoundView.vue'
 
 const routes = [
   {
@@ -27,7 +28,9 @@ const routes = [
     name: 'gallery-item',
     component: GalleryItemView,
     props: true // This lets you access the id as a prop
-  }
+  },
+  // 👇 this must come LAST
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView },
 ]
 
 const router = createRouter({
