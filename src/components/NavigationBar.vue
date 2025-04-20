@@ -4,9 +4,9 @@
   class="nav-bar"
   :class="{ 'nav-bar-transparent': isAtTop, 'nav-bar-opaque': !isAtTop }">
     <GNLogo />
-    <RouterLink to="/" class="link">Home</RouterLink>
-    <RouterLink to="/about" class="link">About</RouterLink>
-    <RouterLink to="/gallery" class="link">Gallery</RouterLink>
+    <RouterLink to="/" class="link">Projects</RouterLink>
+    <RouterLink to="/" class="link">Games</RouterLink>
+    <RouterLink to="/gallery" class="link">Renders</RouterLink>
   </div>
   <div v-if="route.path !== '/'" class="nav-bar-push"></div>
 </template>
@@ -21,7 +21,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const isAtTop = ref(true)
 
 const handleScroll = () => {
-  isAtTop.value = window.scrollY === 0
+  isAtTop.value = window.scrollY < 50
 }
 
 onMounted(() => {
@@ -61,11 +61,14 @@ const route = useRoute()
 }
 
 .nav-bar-transparent {
+  transition: background-color 0.1s linear;
   background-color: transparent;
 }
 
 .nav-bar-opaque {
-  background-color: var(--clr-background);
+  transition: background-color 0.1s linear;
+  background-color: rgba(0, 0, 0, 0.111);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--clr-outline);
 }
 
