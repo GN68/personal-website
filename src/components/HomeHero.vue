@@ -41,11 +41,21 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('resize', () => {})
 })
+
+const setViewportHeight = () => {
+  const vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+}
+
+window.addEventListener('resize', setViewportHeight)
+window.addEventListener('orientationchange', setViewportHeight)
+setViewportHeight()
+
 </script>
 
 <template>
   <div class="hero-3d-scene">
-    <TresCanvas window-size>
+    <TresCanvas>
       <TresPerspectiveCamera
         ref="cameraRef"
         :position="[0, 0, 1]"
@@ -63,10 +73,24 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+
+:root {
+  --vh: 100%;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  /* only for touch devices */
+  :root {
+    --vh: 100vh;
+  }
+}
+
 .hero-3d-scene {
   position: fixed;
   inset: 0;
   z-index: -1;
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
   pointer-events: none;
 }
 </style>
