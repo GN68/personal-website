@@ -5,7 +5,6 @@ import AAAAAA from '@/components/AAAAAA.vue';
 </script>
 
 <template>
-  Welcome Home
   <HomeHero />
   <AAAAAA />
   <AAAAAA />

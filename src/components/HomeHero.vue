@@ -6,7 +6,6 @@ import { PerspectiveCamera } from 'three'
 import Lenis from '@studio-freight/lenis'
 
 const cameraRef = ref<PerspectiveCamera | null>(null)
-const fov = ref(45)
 const windowHeight = ref(0)
 const windowWidth = ref(0)
 
@@ -20,12 +19,12 @@ onMounted(() => {
     windowWidth.value = window.innerWidth
   }
 
-  lenis.on('scroll', ({ scroll }) => {
+  lenis.on('scroll', ({ scroll }: { scroll: number }) => {
     scrollY = scroll
 
     // Smooth camera shift based on scroll
     if (cameraRef.value) {
-      cameraRef.value.position.y = 1 - (scrollY / window.innerHeight)
+      cameraRef.value.position.y =0.5 - (scrollY / window.innerHeight)
     }
   })
 
@@ -62,13 +61,13 @@ setViewportHeight()
         :look-at="[0, 0, 0]"
         :fov="53"
       />
-
       <Suspense>
         <GLTFModel path="/hero.glb" />
       </Suspense>
-
-      <TresAmbientLight :intensity="1" />
     </TresCanvas>
+  </div>
+  <div class="hero-text-container">
+    <h1>Hi I am GN68s</h1>
   </div>
 </template>
 
@@ -83,6 +82,10 @@ setViewportHeight()
   :root {
     --vh: 100vh;
   }
+}
+
+.hero-text-container {
+
 }
 
 .hero-3d-scene {
