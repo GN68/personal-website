@@ -2,46 +2,57 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { TresCanvas } from '@tresjs/core'
 import { GLTFModel } from '@tresjs/cientos'
+import { PerspectiveCamera } from 'three'
+import Lenis from '@studio-freight/lenis'
 
-const cameraY = ref(1) // starting Y position
-const fov = ref(45) // Default FOV
+const cameraRef = ref<PerspectiveCamera | null>(null)
+const fov = ref(45)
+const windowHeight = ref(0)
+const windowWidth = ref(0)
 
-// Scroll listener
-const updateCameraY = () => {
-  const scrollY = window.scrollY
-  cameraY.value = 0.8 + scrollY * -0.00193 // tweak the multiplier for sensitivity
-}
-
-const updateFOV = () => {
-  const aspect = window.innerWidth / window.innerHeight
-  // You can tweak this formula — it's just a nice start
-  fov.value = 60 - aspect * 10
-}
+let scrollY = 0
 
 onMounted(() => {
-  window.addEventListener('scroll', updateCameraY)
-  window.addEventListener('resize', updateFOV)
+  const lenis = new Lenis()
+
+  const handleResize = () => {
+    windowHeight.value = window.innerHeight
+    windowWidth.value = window.innerWidth
+  }
+
+  lenis.on('scroll', ({ scroll }) => {
+    scrollY = scroll
+
+    // Smooth camera shift based on scroll
+    if (cameraRef.value) {
+      cameraRef.value.position.y = 1 - (scrollY / window.innerHeight)
+    }
+  })
+
+  const raf = (time: number) => {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+  requestAnimationFrame(raf)
+
+  window.addEventListener('resize', handleResize)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', updateCameraY)
-  window.removeEventListener('resize', updateFOV)
+  window.removeEventListener('resize', () => {})
 })
-updateFOV()
-updateCameraY()
-
 </script>
 
 <template>
   <div class="hero-3d-scene">
-    <TresCanvas
-      window-size
-      >
+    <TresCanvas window-size>
       <TresPerspectiveCamera
-        :position="[0, cameraY, 3]"
-        :look-at="[0, cameraY, 0]"
-        :fov="fov"
+        ref="cameraRef"
+        :position="[0, 0, 1]"
+        :look-at="[0, 0, 0]"
+        :fov="53"
       />
+
       <Suspense>
         <GLTFModel path="/hero.glb" />
       </Suspense>
@@ -55,8 +66,7 @@ updateCameraY()
 .hero-3d-scene {
   position: fixed;
   inset: 0;
-  z-index: -1; /* sends it behind everything */
-  pointer-events: none; /* so it doesn’t block clicks */
+  z-index: -1;
+  pointer-events: none;
 }
-
 </style>
