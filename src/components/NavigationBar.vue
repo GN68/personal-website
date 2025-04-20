@@ -1,21 +1,21 @@
 <!-- src/components/NavBar.vue -->
 <template>
   <div
-  class="navigation-bar"
-  :class="{ 'navigation-bar-transparent': isAtTop, 'navigation-bar-opaque': !isAtTop }">
+  class="nav-bar"
+  :class="{ 'nav-bar-transparent': isAtTop, 'nav-bar-opaque': !isAtTop }">
     <GNLogo />
     <RouterLink to="/" class="link">Home</RouterLink>
     <RouterLink to="/about" class="link">About</RouterLink>
     <RouterLink to="/gallery" class="link">Gallery</RouterLink>
   </div>
-  <div v-if="route.path !== '/'" class="navigation-bar-push"></div>
+  <div v-if="route.path !== '/'" class="nav-bar-push"></div>
 </template>
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import GNLogo from './GNLogo.vue';
 
-// Transparent navigation bar
+// Transparent nav bar
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const isAtTop = ref(true)
@@ -41,11 +41,11 @@ const route = useRoute()
 
 
 <style>
-.navigation-bar-push {
+.nav-bar-push {
   height: var(--nav-height);
 }
 
-.navigation-bar {
+.nav-bar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -60,23 +60,30 @@ const route = useRoute()
   z-index: 100;
 }
 
-.navigation-bar-transparent {
+.nav-bar-transparent {
   background-color: transparent;
 }
 
-.navigation-bar-opaque {
+.nav-bar-opaque {
   background-color: var(--clr-background);
   border-bottom: 1px solid var(--clr-outline);
 }
 
 
 
-.navigation-bar-left {
+.nav-bar-left {
   display: flex;
   align-items: center;
   margin: 0;
 }
 
+.nav-bar-center {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 div.content {
