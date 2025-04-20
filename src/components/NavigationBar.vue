@@ -61,12 +61,12 @@ const route = useRoute()
 }
 
 .nav-bar-transparent {
-  transition: background-color 0.1s linear;
+  transition: background-color 0.3s linear;
   background-color: transparent;
 }
 
 .nav-bar-opaque {
-  transition: background-color 0.1s linear;
+  transition: background-color 0.3s linear;
   background-color: rgba(0, 0, 0, 0.111);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--clr-outline);
