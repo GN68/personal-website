@@ -69,4 +69,10 @@ const customAttrs: CustomAttrs = {
   font-size: 1.5rem;
 }
 
+@media screen and (max-width: 600px) {
+  .header1 {
+    font-size: 3.5rem;
+  }
+}
+
 </style>

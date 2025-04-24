@@ -5,18 +5,18 @@ const props = defineProps<{
 }>()
 
 const computedWidth = computed(() => {
-  return `min(100% - 2rem, ${props.width ?? 80}rem)`
+  return `min(100vw - 2rem, ${props.width ?? 80}rem)`
 })
 </script>
 
 <template>
-  <div class="page-container" :style="{ width: `calc(${computedWidth})` }">
+  <div class="content-panel" :style="{ width: `calc(${computedWidth})` }">
     <slot />
   </div>
 </template>
 
 <style scoped>
-.page-container {
+.content-panel {
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -27,5 +27,7 @@ const computedWidth = computed(() => {
   justify-content: inherit;
   flex-direction: inherit;
   gap: inherit;
+  
+  overflow: hidden;
 }
 </style>

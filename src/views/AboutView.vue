@@ -10,11 +10,11 @@ import TitleBar from '@/components/TitleBar.vue';
   <ContentPanel :width=36>
     <TitleBar>About ME</TitleBar>
     <div class="profile">
-      <img src="@/assets/icons/gn.webp" alt="" width="192"/>
+      <img src="@/assets/icons/gn.webp" alt="" class="profile-icon"/>
       <MarkdownPage content="
 # **Marc Ramirez**
 ## GN68s · GNamimates
-I am Filipino · Male · The letter H
+I am Filipino · Male · The Green Neon
 "></MarkdownPage>
     </div>
 
@@ -56,5 +56,15 @@ the best way to contact me is through my email"
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+  }
+}
+
+.profile-icon {
+  width: 12rem;
 }
 </style>

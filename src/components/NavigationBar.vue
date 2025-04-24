@@ -54,7 +54,7 @@ const route = useRoute()
 
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   height: var(--nav-height);
 
   display: flex;
