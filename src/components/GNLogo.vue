@@ -1,10 +1,16 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+const isHovered = ref(false)
+</script>
+
+
 <template>
-  <img src="@/assets/icon.webp" alt="🎩" class="logo">
   <div
-    class="logo-title"
-      @mouseenter="isHovered = true"
-      @mouseleave="isHovered = false"
-    >
+  class="logo-title"
+  @mouseenter="isHovered = true"
+  @mouseleave="isHovered = false"
+  >
+    <img src="@/assets/icon.webp" alt="🎩" class="logo">
     <RouterLink to="/" class="custom-link">
     <transition name="fade">
         <span :key="isHovered ? 'hovered' : 'default'" class="text-layer">
@@ -31,7 +37,7 @@
   font-weight: bold;
   font-size: 16pt;
   position: relative;
-  width: 8rem; /* lock size */
+  width: calc(var(--nav-height) - 10px + 8rem); /* lock size */
   height: 1.5em;
   display: inline-block;
   user-select: none;
@@ -40,7 +46,7 @@
 .text-layer {
   position: absolute;
   top: 0;
-  left: 0;
+  left: calc(var(--nav-height) - 10px);
   right: 0;
   bottom: 0;
 
@@ -63,8 +69,3 @@
 }
 </style>
 
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const isHovered = ref(false)
-</script>

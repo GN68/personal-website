@@ -14,9 +14,11 @@
     "lint": "run-s lint:*"
   },
   "dependencies": {
+    "@crazydos/vue-markdown": "^1.0.2",
     "@studio-freight/lenis": "^1.0.42",
     "@tresjs/cientos": "^4.3.0",
     "@tresjs/core": "^4.3.3",
+    "remark-gfm": "^4.0.1",
     "three": "^0.156.1",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
