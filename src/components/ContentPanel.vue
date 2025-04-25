@@ -21,7 +21,6 @@ const computedWidth = computed(() => {
   padding-left: 1rem;
   padding-right: 1rem;
 
-  position: inherit;
   display: inherit;
   align-items: inherit;
   justify-content: inherit;

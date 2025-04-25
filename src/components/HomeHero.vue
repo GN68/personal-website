@@ -1,23 +1,25 @@
 <script setup lang="ts">
 
-import InlineIcon from './InlineIcon.vue'
 import ContentPanel from './ContentPanel.vue';
-
-import iconBlender from '@/assets/icons/blender.png';
-import iconGodot from '@/assets/icons/godot.png';
 import AppIconLink from './AppIconLink.vue';
+import RandomText from './RandomText.vue';
 
 </script>
 <template>
   <ContentPanel>
       <div class="hero-text-container">
       <h1>Hi! I am <span class="highlight">GN</span></h1>
-      <p>
-        3D Generalist
-        <InlineIcon :src="iconBlender" alt="🎩" :size="20" />
-        Game Developer
-        <InlineIcon :src="iconGodot" alt="🎩" :size="20" />
-      </p>
+      <RandomText class="quote" :lines="[
+        'Welcome to my secret lair! muwahahaha',
+        'The right man in the wrong place can make all the BBQ in the world',
+        'Stand in the ashes of a trillion dead souls, and asks the ghosts if honor matters. The silence is your answer',
+        'Bring me a bucket, and I\'ll show you a bucket',
+        'it\'s not out of the question that you might have a very minor case of serious brain damage. But don\'t be alarmed, alright? Although, if you do feel alarm, try to hold onto that feeling because that is the proper reaction to being told you have brain damage.',
+        'Nothing is more badass than treating a woman with respect!',
+        'Thank you Mario! But our Princess is in another castle!',
+        'Snake? Snake? SNAAAAAAAAKE!!!',
+        'Science isn\'t about why! It’s about why not!',
+        ]" />
       <div class="socials">
         <AppIconLink icon="material-symbols:chat-info" title="About" to="/about" />
         <AppIconLink icon="uil:link" title="Links" to="/about" />
@@ -49,14 +51,19 @@ h1 {
 
 
 
-p {
+.quote {
+  display: block;
   margin: 0;
+  text-align: center;
 }
+.quote::before {content: '“';}
+.quote::after {content: '”';}
 
 .hero-text-container {
+  width: 100%;
   height: 100vh;
-  margin-left: 3rem;
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -65,17 +72,15 @@ p {
 }
 
 @media (max-width: 600px) {
+  h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
   .hero-text-container {
     width: 100%;
     left: 0;
     padding: 1rem;
   }
-  h1 {
-    font-size: 3.2rem;
-    line-height: 3.2rem;
-  }
-  p {
-  width: 50%;}
 }
 
 .hero-3d-scene {
