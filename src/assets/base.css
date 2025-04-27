@@ -6,6 +6,7 @@
   --clr-background: var(--darker-gray);
   --clr-outline: var(--dark-gray);
   --clr-text: var(--white);
+  --clr-primary: var(--light-green);
   --clr-text-secondary: var(--lighter-blue-gray);
   --nav-height: 2.5rem;
 }

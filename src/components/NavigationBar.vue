@@ -5,13 +5,14 @@
       <div class="separator">
         <GNLogo />
         <div class="nav-links">
+          <RouterLink to="/" class="link">Home</RouterLink>
           <RouterLink to="/about" class="link">About</RouterLink>
-          <RouterLink to="/gallery" class="link">Gallery</RouterLink>
+          <RouterLink to="/gallery" class="link">Projects</RouterLink>
         </div>
       </div>
     </ContentPanel>
   </div>
-  <div v-if="route.path !== '/'" class="nav-bar-push"></div>
+  <div class="nav-bar-push"></div>
 </template>
 
 <script setup lang="ts">
@@ -19,11 +20,6 @@
 import { RouterLink } from 'vue-router'
 import GNLogo from './GNLogo.vue';
 import ContentPanel from './ContentPanel.vue';
-
-// route checks
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
 
 </script>
 
@@ -86,5 +82,9 @@ div.content {
   color: var(--clr-text);
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.link.router-link-active {
+  color: var(--clr-primary);
 }
 </style>

@@ -61,7 +61,7 @@ h1 {
 
 .hero-text-container {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - var(--nav-height));
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
