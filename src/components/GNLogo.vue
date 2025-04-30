@@ -29,7 +29,7 @@ const isHovered = ref(false)
 }
 
 .logo {
-  height: calc(var(--nav-height) - 10px);
+  height: 100%;
 }
 
 

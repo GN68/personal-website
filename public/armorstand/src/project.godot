@@ -1,0 +1,158 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "StaticBody",
+"class": "ArmorStandSegment",
+"language": "GDScript",
+"path": "res://armor_stand_segment.gd"
+}, {
+"base": "Node",
+"class": "DiscordRPC",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/DiscordRPC.gd"
+}, {
+"base": "Reference",
+"class": "DiscordRPCEnum",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/DiscordRPCEnum.gd"
+}, {
+"base": "Reference",
+"class": "DiscordRPCUtil",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/RPC.gd"
+}, {
+"base": "Reference",
+"class": "IPCUtil",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/util/IPCUtil.gd"
+}, {
+"base": "Reference",
+"class": "RichPresence",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/RichPresence.gd"
+}, {
+"base": "Reference",
+"class": "RichPresenceButton",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/RichPresenceButton.gd"
+}, {
+"base": "",
+"class": "RichPresenceModule",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/RichPreseneModule.gd"
+}, {
+"base": "",
+"class": "StreamPeerUnix",
+"language": "NativeScript",
+"path": "res://addons/godot-unix-socket/unix-socket.gdns"
+}, {
+"base": "Reference",
+"class": "URLUtil",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/util/URLUtil.gd"
+}, {
+"base": "Reference",
+"class": "UUID",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/util/UUID.gd"
+}, {
+"base": "",
+"class": "UpdateRichPresencePayload",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/UpdateRichPresencePayload.gd"
+} ]
+_global_script_class_icons={
+"ArmorStandSegment": "",
+"DiscordRPC": "",
+"DiscordRPCEnum": "",
+"DiscordRPCUtil": "",
+"IPCUtil": "",
+"RichPresence": "",
+"RichPresenceButton": "",
+"RichPresenceModule": "",
+"StreamPeerUnix": "",
+"URLUtil": "",
+"UUID": "",
+"UpdateRichPresencePayload": ""
+}
+
+[application]
+
+config/name="Armor Stand Generator"
+run/main_scene="res://armor stand editor.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
+ArmorStand="*res://ArmorStand.gd"
+History="*res://History.gd"
+
+[debug]
+
+gdscript/warnings/unused_variable=false
+gdscript/warnings/unused_argument=false
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+
+[discord_presence]
+
+first_button/url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+first_button/label="Rickroll button 😈"
+
+[display]
+
+window/stretch/shrink=1.25
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot_editor_discord_presence/plugin.cfg" )
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+theme/custom="res://themes/GNpixel/gnpixel.tres"
+
+[input]
+
+orbit={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":3,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+zoom_in={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+zoom_out={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+pan={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+2d/snapping/use_gpu_pixel_snap=true
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
+	<title>Document</title>
+	<style>
+		body {
+			font-family: "Inter", serif;
+			font-style: normal;
+
+			color: white;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			background-color: rgb(47, 47, 47);
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: fit-content;
+		}
+
+		#grid {
+			display: inline-grid;
+			width: min(400px, 100vw);
+			box-sizing: border-box;
+		}
+
+		.cell {
+			font-size: 500%;
+			line-height: 0;
+			aspect-ratio: 1;
+			padding: 10%;
+		}
+
+		.icon {
+			width: 100%;
+			height: 100%;
+		}
+
+		.icon-black {
+			background-color: rgb(51, 51, 51);
+			border-radius: 100%;
+			border: 2px solid rgb(19, 19, 19);
+			box-sizing: border-box;
+		}
+
+		.icon-white {
+			background-color: rgb(255, 255, 255);
+			border-radius: 100%;
+			border: 2px solid rgb(161, 161, 161);
+			box-sizing: border-box;
+		}
+
+		.icon-preview-black {
+			background-color: rgb(51, 51, 51);
+			border-radius: 100%;
+			border: 2px solid rgb(19, 19, 19);
+			box-sizing: border-box;
+			filter: blur(2px);
+			opacity: 0.5;
+		}
+
+		.icon-preview-white {
+			background-color: rgb(255, 255, 255);
+			border-radius: 100%;
+			border: 2px solid rgb(161, 161, 161);
+			filter: blur(2px);
+			box-sizing: border-box;
+			opacity: 0.5;
+		}
+
+		h1 {
+			font-weight: 400;
+			line-height: 1rem;
+		}
+
+		h2 {
+			font-weight: 400;
+			line-height: 1rem;
+		}
+
+		#black-counter {
+			color: rgb(95, 95, 95);
+		}
+
+		#white-counter {
+			color: rgb(255, 255, 255);
+		}
+
+		.material-symbols-outlined {
+			font-variation-settings:
+				'FILL' 0,
+				'wght' 400,
+				'GRAD' 0,
+				'opsz' 24
+		}
+
+		#close {
+			color: white;
+			align-self: self-start;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<a href=".." id="close"><span class="material-symbols-outlined">
+				close
+			</span></a>
+		<h2 id="turn-display">Black's turn</h2>
+		<div id="grid"></div>
+		<h1><span id="black-counter">1</span> <span id="counter-separator">:</span> <span id="white-counter">0</span></h1>
+		<script>
+			var turn = 0;
+			var active = true
+			var nextTurn = 1;
+			const cellData = [];
+			const GRID_SIZE = 8;
+			const grid = document.getElementById("grid");
+			grid.style["grid-template-columns"] = `repeat(${GRID_SIZE}, 1fr)`;
+
+			for (let x = 0; x < GRID_SIZE; x++) {
+				cellData[x] = [];
+				for (let y = 0; y < GRID_SIZE; y++) {
+					cellData[x][y] = 0;
+
+					const cell = document.createElement("button");
+					cell.id = `cell-${x}-${y}`;
+					cell.classList.add("cell");
+					cell.style["grid-row"] = x + 1;
+					cell.style["grid-column"] = y + 1;
+					grid.appendChild(cell);
+
+					const icon = document.createElement("div")
+					icon.classList.add("icon");
+					cell.appendChild(icon);
+
+					cell.addEventListener("click", () => {
+						if (active && isValidSpot(x, y)) {
+							setCell(x, y, turn, true);
+							changeTurn();
+							checkWin();
+						}
+					});
+				}
+			}
+
+			function checkWin() {
+				var possibleMoves = 0
+				for (let x = 0; x < GRID_SIZE; x++) {
+					for (let y = 0; y < GRID_SIZE; y++) {
+						if (isValidSpot(x, y)) {
+							possibleMoves++;
+						}
+					}
+				}
+				if (possibleMoves == 0) {
+					active = false
+					document.getElementById("black-counter").textContent = "";
+					document.getElementById("white-counter").textContent = "";
+					document.getElementById("counter-separator").textContent = `${black > white ? "Black" : "White"} Won!`;
+				}
+			}
+
+			function updateCounter() {
+				let black = 0;
+				let white = 0;
+				for (let i = 0; i < GRID_SIZE; i++) {
+					for (let j = 0; j < GRID_SIZE; j++) {
+						const ID = cellData[i][j]
+						switch (ID) {
+							case 1:
+								black++;
+								break;
+							case 2:
+								white++;
+								break;
+						}
+					}
+				}
+				document.getElementById("black-counter").textContent = black;
+				document.getElementById("white-counter").textContent = white;
+			}
+
+			function changeTurn() {
+				turn = (turn == 1) ? 2 : 1;
+				nextTurn = (turn == 1) ? 2 : 1;
+				const h2 = document.getElementById("turn-display");
+				h2.textContent = (turn == 2) ? "White's turn" : "Black's turn";
+				updateCounter();
+				updatePreview();
+			}
+
+			function isCellEmpty(x, y) {
+				const ID = cellData[x][y]
+				return !(ID == 1 || ID == 2)
+			}
+
+			function updatePreview() {
+				// clear previews
+				for (let x = 0; x < GRID_SIZE; x++) {
+					for (let y = 0; y < GRID_SIZE; y++) {
+						const ID = cellData[x][y]
+						if (ID > 2) {
+							setCell(x, y, 0);
+						}
+					}
+				}
+				// set previews
+				for (let x = 0; x < GRID_SIZE; x++) {
+					for (let y = 0; y < GRID_SIZE; y++) {
+						const ID = cellData[x][y]
+						if (isCellEmpty(x, y)) {
+							if (isValidSpot(x, y)) {
+								setCell(x, y, turn + 2);
+							}
+						}
+					}
+				}
+			}
+
+			function isPosInbound(x, y) {
+				return x >= 0 && y >= 0 && x < GRID_SIZE && y < GRID_SIZE;
+			}
+
+			function isValidSpot(x, y) {
+				return isCellEmpty(x, y)
+					&& isValidStrafe(x, y, 0, 1)
+					|| isValidStrafe(x, y, 0, -1)
+					|| isValidStrafe(x, y, 1, 0)
+					|| isValidStrafe(x, y, -1, 0)
+
+					|| isValidStrafe(x, y, 1, 1)
+					|| isValidStrafe(x, y, -1, 1)
+					|| isValidStrafe(x, y, 1, -1)
+					|| isValidStrafe(x, y, -1, -1)
+			}
+
+			function isValidStrafe(x, y, ox, oy) {
+				var combo = 0;
+				while (true) {
+					x += ox;
+					y += oy;
+					if (!isPosInbound(x, y)) { return false; }// out of bounds
+					const ID = cellData[x][y];
+					if (isCellEmpty(x, y)) { return false; }// no adjacent combos
+					if (ID === nextTurn) { combo++; } // stack combo
+					if (ID === turn && combo >= 1) { return true; }// has combo and detected itself
+				}
+			}
+
+			function fillAllValids(x, y) {
+				filStrafe(x, y, 0, 1);
+				filStrafe(x, y, 0, -1);
+
+				filStrafe(x, y, 1, 0);
+				filStrafe(x, y, -1, 0);
+
+				filStrafe(x, y, 1, 1);
+				filStrafe(x, y, -1, 1);
+				filStrafe(x, y, 1, -1);
+				filStrafe(x, y, -1, -1);
+			}
+
+			function filStrafe(x, y, ox, oy) {
+				var combo = 0;
+				var toFill = [];
+				while (true) {
+					x += ox;
+					y += oy;
+					if (!isPosInbound(x, y)) { return false; }// out of bounds
+					const ID = cellData[x][y];
+					if (isCellEmpty(x, y)) { return false; }// no adjacent combos
+					if (ID === nextTurn) { combo++; toFill.push([x, y]); } // stack combo
+					if (ID === turn && combo >= 1) {
+						for (let i = 0; i < toFill.length; i++) {
+							setCell(toFill[i][0], toFill[i][1], turn);
+						}
+						;
+					}// has combo and detected itself
+				}
+			}
+
+			function getCell(x, y) {
+				return document.getElementById(`cell-${x}-${y}`);
+			}
+
+			function setCell(x, y, id, attack) {
+				const cell = getCell(x, y);
+				cellData[x][y] = id;
+				const icon = cell.children[0]
+				icon.classList[id === 4 ? "add" : "remove"]("icon-preview-white");
+				icon.classList[id === 3 ? "add" : "remove"]("icon-preview-black");
+				icon.classList[id === 2 ? "add" : "remove"]("icon-white");
+				icon.classList[id === 1 ? "add" : "remove"]("icon-black");
+				if (attack) {
+					fillAllValids(x, y);
+				}
+			}
+
+			const HALF = Math.floor(GRID_SIZE / 2) - 1;
+			setCell(HALF, HALF, 1);
+			setCell(HALF + 1, HALF, 2);
+			setCell(HALF, HALF + 1, 2);
+			setCell(HALF + 1, HALF + 1, 1);
+			changeTurn();
+		</script>
+	</div>
+</body>
+
+</html>

@@ -28,7 +28,7 @@ import ContentPanel from './ContentPanel.vue';
 
 .separator {
   width: 100%;
-  height: 100%;
+  height: 120%;
   display: flex;
   flex-direction: row;
   align-items: center;

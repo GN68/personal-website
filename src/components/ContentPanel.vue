@@ -5,7 +5,7 @@ const props = defineProps<{
 }>()
 
 const computedWidth = computed(() => {
-  return `min(100vw - 2rem, ${props.width ?? 80}rem)`
+  return `min(100vw - 2rem, ${props.width ?? 70}rem)`
 })
 </script>
 
@@ -18,6 +18,7 @@ const computedWidth = computed(() => {
 <style scoped>
 .content-panel {
   margin: 0 auto;
+  height: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
 

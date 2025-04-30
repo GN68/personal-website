@@ -13,9 +13,6 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import('../views/AboutView.vue'),
   },
   {
@@ -27,15 +24,39 @@ const routes = [
     path: '/gallery/:id',
     name: 'gallery-item',
     component: GalleryItemView,
-    props: true // This lets you access the id as a prop
+    props: true
   },
-  // 👇 this must come LAST
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView },
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: routes,
+})
+
+router.beforeEach(async (to, from, next) => {
+  if (to.matched.length) {
+    return next()
+  }
+
+  let checkUrl = to.fullPath
+  if (checkUrl.endsWith('/')) {
+    checkUrl = checkUrl.slice(0, -1)
+  }
+  checkUrl = checkUrl + '/index.html'
+
+  try {
+    const response = await fetch(checkUrl, { method: 'HEAD' })
+
+    if (response.ok) {
+      window.location.href = to.fullPath
+    } else {
+      // Not found -> show Vue 404
+      next()
+    }
+  } catch (err) {
+    next()
+  }
 })
 
 export default router
