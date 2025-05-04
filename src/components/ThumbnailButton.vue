@@ -2,28 +2,34 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import SmartLink from './SmartLink.vue';
 
 const props = defineProps<{
   title: string,
   desc: string,
   img?: string,
+  id: string
 }>()
 
 // Computed to check if title is a URL
 const isUrl = computed(() => props.title.startsWith('https://'))
+const isIdUrl = computed(() => props.id.startsWith('https://'))
 </script>
 
 <template>
-  <div class="thumbnail-button" :style="{ backgroundImage: `url(${img})` }">
-    <div class="overlay"></div>
-    <img v-if="isUrl" :src="title" style="height: 4rem;" class="title"/>
-    <h1 v-else class="title">{{ title }}</h1>
-    <div class="description"> {{ desc }} </div>
+  <component :is="isIdUrl ? SmartLink : 'div'" :to="id">
+    <div class="thumbnail-button" :style="{ backgroundImage: `url(${img})` }">
+      <div class="overlay"></div>
+      <img v-if="isUrl" :src="title" style="height: 4rem;" class="title"/>
+      <h1 v-else class="title">{{ title }}</h1>
+      <div class="description"> {{ desc }} </div>
   </div>
+  </component>
 </template>
 
 <style scoped>
 .thumbnail-button {
+  color: var(--clr-text);
   border: 2px solid var(--clr-border);
   border-radius: 0.5rem;
   height: 16rem;

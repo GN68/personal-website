@@ -7,10 +7,11 @@ In here is where you'll find the projects I have created
 "/>
         <div class="category" v-for="category in categories" :key="category.name">
         <h1>{{ category.name }}</h1>
-        <div class="thumbnails">
+        <div class="thumbnails" :style="{ 'grid-template-columns': `repeat(${category.columns}, 1fr)` }">
           <ThumbnailButton
           v-for="item in category.items" 
           :key="item.id"
+          :id="item.id"
           :title="item.name"
           :desc="item.description || 'No description provided'"
           :img="item.img"
@@ -30,6 +31,7 @@ import ThumbnailButton from '@/components/ThumbnailButton.vue';
 const categories = [
   {
     name: 'My Games',
+    columns: 2,
     items: [
       { 
         id: 'https://gnui.itch.io/the-great-box-chase',
@@ -51,13 +53,78 @@ const categories = [
       }
     ]
   },
+  {
+    name: 'My Minecraft Resource Packs',
+    columns: 3,
+    items: [
+    {
+        id: 'https://modrinth.com/resourcepack/gn-fancy-fences',
+        name: 'Fancy Fences',
+        description: 'Modrinth · Blocks',
+        img: 'https://cdn.modrinth.com/data/6Nchtej4/images/5684a49e3eae78f967ad5d3054fe8e47bb92fdfb.png'
+      },
+      {
+        id: 'https://modrinth.com/resourcepack/gnui',
+        name: 'GNUI RP',
+        description: 'Modrinth · User Interface',
+        img: 'https://cdn.modrinth.com/data/fHkNorKr/images/f7a02c7ef72f7c56145e4c173c3fc3dee5a1544f.png'
+      },
+      {
+        id: 'https://modrinth.com/resourcepack/gn-redstone3d',
+        name: '3D Redstone Wires',
+        description: 'Modrinth · Redstone · Cursed',
+        img: 'https://cdn.modrinth.com/data/tIgl7EnR/images/628725a84bb1bdb3db624e7fd3305a579d3b5689.png'
+      }
+    ]
+  },
+  {
+    name: 'My Figura Stuffs',
+    columns: 4,
+    items: [
+    {
+        id: 'https://github.com/lua-gods/RC-Car-Reborn',
+        name: 'RC Car Reborn',
+        description: 'Avatar · Physics · Cars',
+        img: ''
+      },
+      {
+        id: 'https://github.com/lua-gods/GNUI',
+        name: 'GNUI',
+        description: 'Library · User Interface',
+        img: ''
+      },
+      {
+        id: 'https://github.com/lua-gods/GNs-Avatar-3',
+        name: 'GN\'s Avatar 3',
+        description: 'Avatar · Personal',
+        img: ''
+      },
+      {
+        id: 'https://github.com/lua-gods/hamster-ball',
+        name: 'Hamster Ball',
+        description: 'Avatar · Physics',
+        img: ''
+      },
+      {
+        id: 'https://github.com/lua-gods/ena-bbq',
+        name: 'ENA Dream BBQ',
+        description: 'Avatar · 3D Model · Character',
+        img: ''
+      },
+      {
+        id: 'https://github.com/lua-gods/Golf',
+        name: 'Golf',
+        description: 'Avatar · Physics',
+        img: ''
+      },
+    ]
+  },
 ]
 </script>
 
 <style scoped>
 .thumbnails {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
