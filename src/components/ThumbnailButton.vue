@@ -20,7 +20,7 @@ const isUrl = computed(() => props.title.startsWith('https://'))
   <SmartLink :to="id">
     <div class="thumbnail-button" :style="{ backgroundImage: `url(${img})` }">
       <div class="overlay"></div>
-      <img v-if="isUrl" :src="title" style="height: 4rem;" class="title"/>
+      <img v-if="isUrl" :src="title" style="max-height: 4rem; max-width: 100%;" class="title"/>
       <h1 v-else class="title">{{ title }}</h1>
       <div class="description"> {{ desc }} </div>
   </div>

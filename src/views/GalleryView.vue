@@ -7,7 +7,7 @@ In here is where you'll find the projects I have created
 "/>
         <div class="category" v-for="category in categories" :key="category.name">
         <h1>{{ category.name }}</h1>
-        <div class="thumbnails" :style="{ 'grid-template-columns': `repeat(${category.columns}, 1fr)` }">
+        <div class="thumbnails" :style="{ 'grid-template-columns': `repeat(${(aspectRatio > 1) ? category.columns : 1}, 1fr)` }">
           <ThumbnailButton
           v-for="item in category.items" 
           :key="item.id"
@@ -27,9 +27,23 @@ In here is where you'll find the projects I have created
 import ContentPanel from '@/components/ContentPanel.vue';
 import MarkdownPage from '@/components/MarkdownPage.vue';
 import ThumbnailButton from '@/components/ThumbnailButton.vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
+const aspectRatio = ref(1.777)
+
+const checkAspectRatio = () => {
+  aspectRatio.value = window.innerWidth / window.innerHeight
+}
+
+onMounted(() => {
+  checkAspectRatio()
+  window.addEventListener('resize', checkAspectRatio)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', checkAspectRatio)
+})
 
 const categories = [
-  
 {
     name: 'My Games',
     columns: 2,
@@ -178,7 +192,7 @@ const categories = [
   gap: 1rem;
 }
 
-@media screen and (max-width: 800px) {
+@media (aspect-ratio: 1/1) {
   .thumbnails {
     grid-template-columns: 1fr;
   }
