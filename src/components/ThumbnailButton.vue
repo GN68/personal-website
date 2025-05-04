@@ -13,18 +13,18 @@ const props = defineProps<{
 
 // Computed to check if title is a URL
 const isUrl = computed(() => props.title.startsWith('https://'))
-const isIdUrl = computed(() => props.id.startsWith('https://'))
+
 </script>
 
 <template>
-  <component :is="isIdUrl ? SmartLink : 'div'" :to="id">
+  <SmartLink :to="id">
     <div class="thumbnail-button" :style="{ backgroundImage: `url(${img})` }">
       <div class="overlay"></div>
       <img v-if="isUrl" :src="title" style="height: 4rem;" class="title"/>
       <h1 v-else class="title">{{ title }}</h1>
       <div class="description"> {{ desc }} </div>
   </div>
-  </component>
+  </SmartLink>
 </template>
 
 <style scoped>

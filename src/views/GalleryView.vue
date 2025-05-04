@@ -29,7 +29,8 @@ import MarkdownPage from '@/components/MarkdownPage.vue';
 import ThumbnailButton from '@/components/ThumbnailButton.vue';
 
 const categories = [
-  {
+  
+{
     name: 'My Games',
     columns: 2,
     items: [
@@ -50,6 +51,48 @@ const categories = [
         name: 'https://img.itch.zone/aW1nLzcwMTA3MzIucG5n/original/5oyPSx.png',
         description: 'Optionally Free · Type Action Shooter · Godot',
         img: 'https://img.itch.zone/aW1hZ2UvMTIwMTY5OC83MDE4NTA0LnBuZw==/original/yyeZuv.png',
+      }
+    ]
+  },
+  {
+    name: 'Online Stuffs',
+    columns: 3,
+    items: [
+      { 
+        id: '/othello',
+        name: 'othello',
+        description: 'Board Game · Javascript',
+        img: '/thumbnails/othello.jpg',
+      },
+      { 
+        id: '/pano',
+        name: 'Pano',
+        description: 'Tool · Panorama · Javascript',
+        img: '/thumbnails/pano.jpg',
+      },
+      { 
+        id: '/rocket-miss-dev',
+        name: 'Rocket Miss',
+        description: 'Top Down Flee · Godot',
+        img: '/thumbnails/plane.jpg',
+      },
+      { 
+        id: '/armorstand',
+        name: 'Armorstand Poser',
+        description: 'Editor · Minecraft 1.16 - 1.20.4 · Godot · Archive',
+        img: '/thumbnails/armorstand.jpg',
+      },
+      { 
+        id: '/wack-a-duck',
+        name: 'Wack a Duck',
+        description: 'Clicker · Godot',
+        img: '/thumbnails/duck.jpg',
+      },
+      { 
+        id: '/classic',
+        name: 'Legacy Website',
+        description: 'Archive · Godot',
+        img: '/thumbnails/classic.jpg',
       }
     ]
   },
@@ -118,7 +161,7 @@ const categories = [
         img: ''
       },
     ]
-  },
+  }
 ]
 </script>
 
