@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { database } from './firebase';
 import NavigationBar from './components/NavigationBar.vue';
 </script>
 

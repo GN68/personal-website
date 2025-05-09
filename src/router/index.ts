@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import GalleryView from '@/views/GalleryView.vue'
 import GalleryItemView from '@/views/GalleryItemView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
+import InputView from '@/views/InputView.vue'
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     path: '/gallery',
     name: 'gallery',
     component: GalleryView
+  },
+  {
+    path: '/input',
+    name: 'input',
+    component: InputView
   },
   {
     path: '/gallery/:id',
