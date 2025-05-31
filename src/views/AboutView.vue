@@ -12,7 +12,7 @@ import TitleBar from '@/components/TitleBar.vue';
     <div class="profile">
       <img src="@/assets/icons/gn.webp" alt="" class="profile-icon"/>
       <MarkdownPage content="
-# **Marc Ramirez**
+# **Mark Ramirez**
 ## GN68s · GNamimates
 I am Filipino · Male · The Green Neon
 "></MarkdownPage>

@@ -4,6 +4,7 @@ import GalleryView from '@/views/GalleryView.vue'
 import GalleryItemView from '@/views/GalleryItemView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import InputView from '@/views/InputView.vue'
+import DownloadView from '../views/DownloadView.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     name: 'gallery-item',
     component: GalleryItemView,
     props: true
+  },
+  {
+    path: '/script',
+    name: 'script',
+    component: DownloadView
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView },
 ]

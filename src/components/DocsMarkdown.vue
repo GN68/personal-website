@@ -14,7 +14,6 @@ const customAttrs: CustomAttrs = {
   p: { 'class': ["paragraph"] },
   li: { 'class': ["line-item"] },
   strong: { 'class': ["bold"] },
-  code: { 'class': ["code"] },
   //a: { target: '_blank', rel: "noopener noreferrer" }
 }
 </script>
@@ -24,14 +23,6 @@ const customAttrs: CustomAttrs = {
 </template>
 
 <style>
-
-code {
-  display: inline-block;
-  padding: 0.1rem;
-  border-radius: 0.25rem;
-  border: 2px solid var(--clr-outline);
-  background-color: rgba(128, 128, 128, 0.042);
-}
 
 .paragraph {
   color: var(--clr-text-secondary);
