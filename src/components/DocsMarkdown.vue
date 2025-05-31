@@ -55,6 +55,8 @@ const customAttrs: CustomAttrs = {
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 2rem;
+  border-top: 1px solid var(--clr-outline);
+  padding-top: 1rem;
 }
 
 .header3 {
