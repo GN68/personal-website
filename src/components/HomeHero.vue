@@ -23,7 +23,7 @@ import RandomText from './RandomText.vue';
       <div class="socials">
         <AppIconLink icon="material-symbols:chat-info" title="About" to="/about" />
         <AppIconLink icon="uil:link" title="Links" to="/about" />
-        <AppIconLink icon="fluent:chat-12-filled" title="Contact" to="/gallery" />
+        <AppIconLink icon="fluent:chat-12-filled" title="Projects" to="/gallery" />
       </div>
     </div>
   </ContentPanel>

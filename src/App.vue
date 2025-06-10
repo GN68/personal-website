@@ -5,22 +5,23 @@ import NavigationBar from './components/NavigationBar.vue';
 
 <template>
   <NavigationBar />
-  <RouterView v-slot="{ Component }">
-    <Transition name="fade" mode="out-in">
-      <component :is="Component"/>
-    </Transition>
-  </RouterView>
+  <div class="background">
+    <RouterView v-slot="{ Component }">
+      <Transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </RouterView>
+  </div>
 </template>
 
 <style>
-
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.1s ease;
 }
 
 .fade-enter-from,
-.fade-leave-to{
+.fade-leave-to {
 
   opacity: 0;
 }

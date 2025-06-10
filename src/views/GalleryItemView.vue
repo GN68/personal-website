@@ -10,6 +10,5 @@ const props = defineProps<{
 <template>
   <div>
     <h2>Gallery Item {{ id }}</h2>
-    <!-- you could fetch image/details using the id -->
   </div>
 </template>

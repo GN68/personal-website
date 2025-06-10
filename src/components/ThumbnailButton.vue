@@ -11,7 +11,7 @@ const props = defineProps<{
   id: string
 }>()
 
-// Computed to check if title is a URL
+
 const isUrl = computed(() => props.title.startsWith('https://'))
 
 </script>
@@ -23,15 +23,15 @@ const isUrl = computed(() => props.title.startsWith('https://'))
       <img v-if="isUrl" :src="title" style="max-height: 4rem; max-width: 100%;" class="title"/>
       <h1 v-else class="title">{{ title }}</h1>
       <div class="description"> {{ desc }} </div>
-  </div>
+    </div>
   </SmartLink>
 </template>
 
 <style scoped>
 .thumbnail-button {
   color: var(--clr-text);
-  border: 2px solid var(--clr-border);
-  border-radius: 0.5rem;
+  border: 2px solid rgb(59, 59, 59);
+  border-radius: 10px;
   height: 16rem;
   
   display: flex;
@@ -59,7 +59,7 @@ const isUrl = computed(() => props.title.startsWith('https://'))
 }
 
 .overlay {
-  border-radius: 0.5rem;
+  border-radius: 8px;
   position: absolute;
   inset: 0;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
