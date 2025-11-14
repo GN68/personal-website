@@ -35,8 +35,8 @@ onMounted(() => {
   <ContentPanel>
     <div class="content">
       <h1>Input</h1>
-      <div  class="error" ref="errorText"> {{ errorMessage }}</div>
-      <textarea v-model="textInput"/>
+      <div class="error" ref="errorText"> {{ errorMessage }}</div>
+      <textarea v-model="textInput" />
       <button @click="syncText">Submit</button>
     </div>
   </ContentPanel>
@@ -55,6 +55,4 @@ onMounted(() => {
   background-color: var(--light-green);
   color: black;
 }
-
-
 </style>

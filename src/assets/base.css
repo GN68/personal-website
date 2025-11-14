@@ -19,6 +19,7 @@ body {
   background-color: var(--clr-background);
   color: var(--clr-text);
   font-family: "Inter", sans-serif;
+  font-weight: 500;
   font-optical-sizing: auto;
   margin: 0;
   padding: 0;

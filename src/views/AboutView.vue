@@ -35,7 +35,7 @@ the best way to contact me is through my email"
 ></MarkdownPage>
 <MarkdownPage content="#### Socials"></MarkdownPage>
 <IconButtonLink icon="simple-icons:gmail" title="Email · My Work Email · mail@gnon.top" to="mailto:mail@gnon.top"></IconButtonLink>
-<IconButtonLink icon="simple-icons:bluesky" title="Bluesky · I barely use this · gnon.top" to="https://gnui.itch.io"></IconButtonLink>
+<IconButtonLink icon="simple-icons:bluesky" title="Bluesky · I barely use this · gnon.top" to="https://bsky.app/profile/gnon.top"></IconButtonLink>
 <IconButtonLink icon="simple-icons:youtube" title="Youtube · My Animations · GNamimates" to="https://www.youtube.com/@GNamimates"></IconButtonLink>
 <IconButtonLink icon="simple-icons:github" title="Github · My Repositories · GN68" to="https://github.com/GN68"></IconButtonLink>
 <MarkdownPage content="#### Stores / Downloads"></MarkdownPage>

@@ -47,28 +47,44 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  if (to.matched.length) {
+  const isNotFoundRoute =
+    to.matched.length === 1 && to.matched[0].name === 'NotFound'
+
+  // If it's not a "real 404" route, proceed normally
+  if (!isNotFoundRoute) {
     return next()
   }
 
+  // 🚫 PREVENT INFINITE LOOP:
+  // If the URL already points to a .html file, don't try to append index.html again
+  if (to.fullPath.endsWith('.html')) {
+    return next()
+  }
+
+  // Build fallback static path
   let checkUrl = to.fullPath
   if (checkUrl.endsWith('/')) {
     checkUrl = checkUrl.slice(0, -1)
   }
-  checkUrl = checkUrl + '/index.html'
+  checkUrl += '/index.html'
 
   try {
     const response = await fetch(checkUrl, { method: 'HEAD' })
 
     if (response.ok) {
-      window.location.href = to.fullPath
-    } else {
-      // Not found -> show Vue 404
-      next()
+      // Static file exists → load it directly (hard reload to bypass SPA routing)
+      window.location.href = checkUrl
+      return
     }
+
+    // No static file found → show Vue's NotFoundView
+    next()
+
   } catch (err) {
     next()
   }
 })
+
+
 
 export default router
