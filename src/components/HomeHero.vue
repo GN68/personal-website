@@ -6,7 +6,6 @@ import AppIconLink from './AppIconLink.vue';
 </script>
 <template>
   <div>
-    <video class="hero-video" src="@/assets/hero.webm" autoplay muted></video>
     <ContentPanel :width="50">
         <div class="hero-text-container">
         <h1>Hi! I am <span class="highlight">GN</span></h1>
