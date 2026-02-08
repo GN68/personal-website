@@ -34,7 +34,7 @@ uniform float uTime;
 uniform vec2 uResolution;
 varying vec2 vUv;
 
-const vec3 color1 = vec3(0.12);
+const vec3 color1 = vec3(0.08);
 const vec3 color2 = vec3(0.05);
 
 const float zoom = 150.0;
