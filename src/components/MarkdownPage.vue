@@ -60,6 +60,12 @@ code {
   border-bottom: 1px solid var(--clr-outline);
 }
 
+@media screen and (max-width: 600px) {
+  .header1 {
+    text-align: center;
+  }
+}
+
 .header2 {
   margin-top: 1rem;
   margin-bottom: 1rem;
