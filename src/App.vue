@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { database } from './firebase';
+import BackgroundGrid from './components/backgrounds/BackgroundGrid.vue';
 import NavigationBar from './components/NavigationBar.vue';
 </script>
 
@@ -11,10 +11,14 @@ import NavigationBar from './components/NavigationBar.vue';
         <component :is="Component" />
       </Transition>
     </RouterView>
+    
+    <BackgroundGrid />
   </div>
+
 </template>
 
-<style>
+<style scoped>
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.1s ease;

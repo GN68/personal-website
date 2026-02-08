@@ -48,12 +48,12 @@ const categories = [
     name: 'My Games',
     columns: 4,
     items: [
-      { 
-        id: 'https://gnui.itch.io/the-great-box-chase',
-        name: 'https://img.itch.zone/aW1nLzE2NDk4MTU5LnBuZw==/original/S3zV%2B6.png',
-        description: 'Completely Free · Type Action Shooter · Godot',
-        img: 'https://img.itch.zone/aW1hZ2UvMjc2NDg2My8xNjQ5NDkyOS5wbmc=/794x1000/4%2BSSbl.png',
-      },
+      //{ 
+      //  id: 'https://gnui.itch.io/the-great-box-chase',
+      //  name: 'https://img.itch.zone/aW1nLzE2NDk4MTU5LnBuZw==/original/S3zV%2B6.png',
+      //  description: 'Completely Free · Type Action Shooter · Godot',
+      //  img: 'https://img.itch.zone/aW1hZ2UvMjc2NDg2My8xNjQ5NDkyOS5wbmc=/794x1000/4%2BSSbl.png',
+      //},
       { 
         id: 'https://gnui.itch.io/hallway',
         name: 'Hallway',
