@@ -57,7 +57,7 @@ code {
 .md-header1 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  font-size: 4rem;
+  font-size: 3.9rem;
   border-bottom: 1px solid var(--lighter-green);
 }
 
