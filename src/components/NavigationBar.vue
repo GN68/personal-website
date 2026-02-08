@@ -3,7 +3,7 @@
   <div class="nav-bar">
     <ContentPanel>
       <div class="separator">
-        <GNLogo />
+        <LogoGN />
         <div class="nav-links">
           <RouterLink to="/" class="link">Home</RouterLink>
           <RouterLink to="/about" class="link">About</RouterLink>
@@ -18,9 +18,8 @@
 <script setup lang="ts">
 // import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
-import GNLogo from './GNLogo.vue';
+import LogoGN from './LogoGN.vue';
 import ContentPanel from './ContentPanel.vue';
-
 </script>
 
 

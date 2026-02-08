@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-import SmartLink from "./SmartLink.vue";
+import SmartLink from "../SmartLink.vue";
 defineProps<{
   icon: string,
   title: string,
@@ -30,7 +30,11 @@ defineProps<{
   border-radius: 0.5rem;
   padding: 0.25rem;
 
-  border: 1px solid var(--clr-outline);
+  background-color: rgba(255, 255, 255, 0.053);
+  box-shadow: 
+  inset 0 0 0px rgba(255, 255, 255, 0.205),
+  inset 0 1px 2px rgba(255, 255, 255, 0.207)
+  ;
 }
 
 .app-icon-link h3 {

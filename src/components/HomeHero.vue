@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import ContentPanel from './ContentPanel.vue';
-import AppIconLink from './AppIconLink.vue';
+import AppIconLink from './links/AppIconLink.vue';
 
 </script>
 <template>
@@ -9,8 +9,7 @@ import AppIconLink from './AppIconLink.vue';
     <ContentPanel :width="50">
         <div class="hero-text-container">
         <h1>Hi! I am <span class="highlight">GN</span></h1>
-        <p>Programming is my passion</p>
-        <div class = "warning">This website is under construction!</div>
+        <p>Programmer, 3D Animator, Graphic Designer, and UI Lover</p>
         <div class="socials">
           <AppIconLink icon="material-symbols:chat-info" title="About" to="/about" />
           <AppIconLink icon="uil:link" title="Links" to="/about" />
@@ -23,20 +22,6 @@ import AppIconLink from './AppIconLink.vue';
 
 <style scoped>
 
-.warning {
-  border-radius: 2px;
-  padding: 4px 4px;
-  background-color: rgba(255, 213, 0, 0.142);
-  display: flex;
-  flex-direction: column;
-  border-left: 4px solid rgb(255, 213, 0);
-  width: fit-content;
-}
-
-.warning::before {
-  content: '⚠️ Warning';
-  color: rgb(255, 213, 0);
-}
 
 .hero-video {
   pointer-events: none;
@@ -51,10 +36,12 @@ import AppIconLink from './AppIconLink.vue';
   transform: translate(-50%, 0);
 }
 
+
 .highlight {
   color: var(--primary);
   color: var(--light-green);
 }
+
 
 .socials {
   margin-top: 0.5rem;
@@ -69,7 +56,6 @@ h1 {
   border-bottom: none;
   line-height: 5rem;
 }
-
 
 
 .quote {

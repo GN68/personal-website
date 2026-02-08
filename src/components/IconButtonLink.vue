@@ -30,8 +30,13 @@ defineProps<{
   
   
   transition: background-color 0.1s linear;
-  border: 1px solid var(--clr-outline);
+  
   border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.039);
+  box-shadow: 
+  inset 0 0 1px rgba(255, 255, 255, 0.074),
+  inset 0 1.5px 1px rgba(255, 255, 255, 0.073)
+  ;
 }
 
 .app-icon-link:hover {
