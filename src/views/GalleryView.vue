@@ -46,7 +46,7 @@ onBeforeUnmount(() => {
 const categories = [
 {
     name: 'My Games',
-    columns: 2,
+    columns: 4,
     items: [
       { 
         id: 'https://gnui.itch.io/the-great-box-chase',
@@ -134,7 +134,7 @@ const categories = [
       }
     ]
   },
-  {
+  /*/{
     name: 'My Figura Stuffs',
     columns: 4,
     items: [
@@ -175,7 +175,7 @@ const categories = [
         img: ''
       },
     ]
-  }
+  }/*/
 ]
 </script>
 

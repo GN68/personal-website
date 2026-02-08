@@ -22,7 +22,7 @@ const customAttrs: CustomAttrs = {
   <VueMarkdown :markdown="props.content" :custom-attrs="customAttrs" :remark-plugins="[remarkGfm]" />
 </template>
 
-<style>
+<style scoped>
 
 .paragraph {
   color: var(--clr-text-secondary);
