@@ -21,7 +21,7 @@ import AppIconLink from './links/AppIconLink.vue';
 </template>
 
 <style scoped>
-
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 
 .hero-video {
   pointer-events: none;
@@ -38,6 +38,7 @@ import AppIconLink from './links/AppIconLink.vue';
 
 
 .highlight {
+  
   color: var(--primary);
   color: var(--light-green);
 }
@@ -50,8 +51,9 @@ import AppIconLink from './links/AppIconLink.vue';
 }
 
 h1 {
+  font-family: 'Google Sans', sans-serif;
   font-size: 5rem;
-  font-weight: normal;
+  font-weight: 400;
   margin: 0;
   border-bottom: none;
   line-height: 5rem;

@@ -2,13 +2,12 @@
 import ContentPanel from '@/components/ContentPanel.vue';
 import IconButtonLink from '@/components/IconButtonLink.vue';
 import MarkdownPage from '@/components/MarkdownPage.vue';
-import TitleBar from '@/components/TitleBar.vue';
 
 </script>
 
 <template>
   <ContentPanel :width=40>
-    <TitleBar>About ME</TitleBar>
+    <h1>About Me</h1>
     <div class="profile">
       <img src="@/assets/icons/gn.webp" alt="" class="profile-icon"/>
       <MarkdownPage content='
