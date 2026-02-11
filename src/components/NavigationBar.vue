@@ -36,6 +36,11 @@ import ContentPanel from './ContentPanel.vue';
 
 .nav-links {
   width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav-bar-push {
@@ -81,9 +86,15 @@ div.content {
   color: var(--clr-text);
   padding-left: 1rem;
   padding-right: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .link.router-link-active {
-  color: var(--clr-primary);
+  box-sizing: border-box;
+  color: black;
+  background-image: linear-gradient(var(--dark-green), var(--light-green));
+  border-bottom: 1px solid var(--lighter-green);
 }
 </style>
