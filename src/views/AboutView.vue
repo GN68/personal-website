@@ -45,7 +45,7 @@ the best way to contact me is through my Email or Discord"
 <IconButtonLink icon="simple-icons:sketchfab" title="Fab · My Models [Empty] · GNamimates" to="https://modrinth.com/user/GN"></IconButtonLink>
 <MarkdownPage content="
 ## EDUCATION
-- I am currently in my 1st year of Computer Science in College
+I am currently in my 2nd year of Computer Science in College
     "
     ></MarkdownPage>
   </ContentPanel>

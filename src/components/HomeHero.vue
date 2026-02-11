@@ -21,7 +21,6 @@ import AppIconLink from './links/AppIconLink.vue';
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 
 .hero-video {
   pointer-events: none;
