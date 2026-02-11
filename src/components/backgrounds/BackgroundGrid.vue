@@ -34,23 +34,18 @@ uniform float uTime;
 uniform vec2 uResolution;
 varying vec2 vUv;
 
-const vec3 color1 = vec3(0.08);
-const vec3 color2 = vec3(0.05);
+const vec3 color1 = vec3(0.05);
+const vec3 color2 = vec3(0.08);
 
-const float zoom = 150.0;
+const float zoom = 100.0;
+const float pi = 3.14159;
 
 void main() {
-  vec2 uv = vUv;
+  vec2 p = vUv * zoom;
   
+  float d = sin(p.x*pi) * sin(p.y*pi);
   
-  vec2 p = vec2(
-    mod(uv.x*zoom,1.0),
-    mod(uv.y*zoom + uTime * 0.1,1.0)
-  );
-  
-  float s = length(p-0.5);
-  
-  float d = smoothstep(0.0,1.0,(s - uv.y * 5.0 + 2.1) * 50.0);
+  d = clamp(d * 500.0, 0.0, 1.0);
   
   gl_FragColor = vec4(mix(color1,color2,d),1.0);
 }
