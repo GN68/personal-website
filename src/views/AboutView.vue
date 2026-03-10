@@ -41,9 +41,10 @@ the best way to contact me is through my Email or Discord"
 <IconButtonLink icon="simple-icons:discord" title="Discord · My Discord · GN68s" to="https://discord.com/"></IconButtonLink>
 <IconButtonLink icon="simple-icons:bluesky" title="Bluesky · I barely use this · gnon.top" to="https://bsky.app/profile/gnon.top"></IconButtonLink>
 <MarkdownPage content="#### Stores / Downloads"></MarkdownPage>
-<IconButtonLink icon="simple-icons:itchdotio" title="Itch.io · My Games · gnui.itch.io" to="https://gnui.itch.io"></IconButtonLink>
+<IconButtonLink icon="simple-icons:kofi" title="Ko-fi · Figura Avatar Comissions · GNanimates · Support me!" to="https://ko-fi.com/gnanimates"></IconButtonLink>
 <IconButtonLink icon="simple-icons:modrinth" title="Modrinth · My Minecraft Resource Packs · GN" to="https://modrinth.com/user/GN"></IconButtonLink>
-<IconButtonLink icon="simple-icons:sketchfab" title="Fab · My Models [Empty] · GNamimates" to="https://modrinth.com/user/GN"></IconButtonLink>
+<IconButtonLink icon="simple-icons:itchdotio" title="Itch.io · My Games · gnui.itch.io [inactive]" to="https://gnui.itch.io"></IconButtonLink>
+<IconButtonLink icon="simple-icons:sketchfab" title="Fab · My Models [Empty] · GNamimates [inactive]" to="https://modrinth.com/user/GN"></IconButtonLink>
 <MarkdownPage content="
 ## EDUCATION
 I am currently in my 2nd year of Computer Science in College
