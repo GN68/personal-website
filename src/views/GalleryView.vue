@@ -1,10 +1,6 @@
 <template>
   <div>
     <ContentPanel>
-      <MarkdownPage content="
-# Projects
-In here is where you'll find the projects I have created
-"/>
         <div class="category" v-for="category in categories" :key="category.name">
         <h1>{{ category.name }}</h1>
         <div class="thumbnails" :style="{ 'grid-template-columns': `repeat(${(aspectRatio > 1) ? category.columns : 1}, 1fr)` }">
@@ -25,7 +21,6 @@ In here is where you'll find the projects I have created
 
 <script setup lang="ts">
 import ContentPanel from '@/components/ContentPanel.vue';
-import MarkdownPage from '@/components/MarkdownPage.vue';
 import ThumbnailButton from '@/components/ThumbnailButton.vue';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 const aspectRatio = ref(1.777)
@@ -46,7 +41,7 @@ onBeforeUnmount(() => {
 const categories = [
 {
     name: 'My Games',
-    columns: 4,
+    columns: 2,
     items: [
       //{ 
       //  id: 'https://gnui.itch.io/the-great-box-chase',
@@ -57,13 +52,13 @@ const categories = [
       { 
         id: 'https://gnui.itch.io/hallway',
         name: 'Hallway',
-        description: 'Completely Free · Type Action Shooter · Godot',
+        description: 'Free · GMTK Game Jam 2024 · Godot',
         img: 'https://img.itch.zone/aW1hZ2UvMjkwOTYyOC8xNzQwNDYyMC5wbmc=/original/Jya5%2F9.png',
       },
       { 
         id: 'https://gnui.itch.io/gns-apparatus',
         name: 'https://img.itch.zone/aW1nLzcwMTA3MzIucG5n/original/5oyPSx.png',
-        description: 'Optionally Free · Type Action Shooter · Godot',
+        description: 'Free · Godot Wild Jam #37 · Godot',
         img: 'https://img.itch.zone/aW1hZ2UvMTIwMTY5OC83MDE4NTA0LnBuZw==/original/yyeZuv.png',
       }
     ]
@@ -74,21 +69,21 @@ const categories = [
     items: [
       { 
         id: '/othello',
-        name: 'othello',
+        name: 'Othello',
         description: 'Board Game · Javascript',
         img: '/thumbnails/othello.jpg',
       },
       { 
         id: '/pano',
-        name: 'Pano',
+        name: 'Panorama viewer',
         description: 'Tool · Panorama · Javascript',
         img: '/thumbnails/pano.jpg',
       },
       { 
-        id: '/rocket-miss-dev',
+        id: '/rocket-miss',
         name: 'Rocket Miss',
         description: 'Top Down Flee · Godot',
-        img: '/thumbnails/plane.jpg',
+        img: '/thumbnails/plane2.webp',
       },
       { 
         id: '/armorstand',
@@ -104,7 +99,7 @@ const categories = [
       },
       { 
         id: '/classic',
-        name: 'Legacy Website',
+        name: 'Website Legacy',
         description: 'Archive · Godot',
         img: '/thumbnails/classic.jpg',
       }
@@ -112,19 +107,13 @@ const categories = [
   },
   {
     name: 'My Minecraft Resource Packs',
-    columns: 3,
+    columns: 2,
     items: [
     {
         id: 'https://modrinth.com/resourcepack/gn-fancy-fences',
         name: 'Fancy Fences',
         description: 'Modrinth · Blocks',
         img: 'https://cdn.modrinth.com/data/6Nchtej4/images/5684a49e3eae78f967ad5d3054fe8e47bb92fdfb.png'
-      },
-      {
-        id: 'https://modrinth.com/resourcepack/gnui',
-        name: 'GNUI RP',
-        description: 'Modrinth · User Interface',
-        img: 'https://cdn.modrinth.com/data/fHkNorKr/images/f7a02c7ef72f7c56145e4c173c3fc3dee5a1544f.png'
       },
       {
         id: 'https://modrinth.com/resourcepack/gn-redstone3d',
