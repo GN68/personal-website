@@ -26,14 +26,14 @@ defineProps<{
   height: 2.5rem;
   gap: 1rem;
   margin: 0.5rem 0;
-  padding: 0.25rem 0.5rem;
+  padding: 0.1rem 0.5rem;
+  line-height: 1.2rem;
   
   transition: background-color 0.1s linear;
   
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(179, 179, 179, 0.164);
-  box-sizing: border-box;
   ;
 }
 

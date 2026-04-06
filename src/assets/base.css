@@ -71,6 +71,10 @@ h1 {
   h1 {
     text-align: center;
   }
+  ul {
+  padding-left: 1rem;
+  list-style-position: inside;
+}
 }
 
 h2 {
