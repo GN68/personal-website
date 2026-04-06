@@ -11,12 +11,12 @@ import MarkdownPage from '@/components/MarkdownPage.vue';
     <div class="profile">
       <img src="@/assets/icons/gn.webp" alt="" class="profile-icon"/>
       <MarkdownPage content='
-# **MARC RAMIREZ**
+# **GNANIMATES**
 (⌐▰-▰)
 Filipino · Male · 20 Years old
 
-You may know me as **GN**, **GNUI**, **GN68s** or **GNamimates**.
-one way to identify me is by finding my prefix GN
+Hi. I am Marc, aka GN. You may know me as **GNUI**, **GN68s** or **GNamimates**.
+one way to identify me is by finding my prefix **GN**
 '></MarkdownPage>
     </div>
 
@@ -68,6 +68,7 @@ I am currently in my 2nd year of Computer Science in College
 }
 
 .profile-icon {
+  border-radius: 999rem;
   width: 12rem;
 }
 </style>
