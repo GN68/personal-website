@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BackgroundGrid from './components/backgrounds/BackgroundGrid.vue';
+import BackgroundTrees from './components/backgrounds/backgroundTrees.vue';
 import NavigationBar from './components/NavigationBar.vue';
 import FooterBar from './components/FooterBar.vue';
 </script>
@@ -13,7 +13,7 @@ import FooterBar from './components/FooterBar.vue';
       </Transition>
     </RouterView>
   </div>
-  <BackgroundGrid />
+  <BackgroundTrees />
   <FooterBar />
 </template>
 

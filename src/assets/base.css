@@ -8,23 +8,38 @@
   --clr-background: var(--darker-gray);
   --clr-outline: var(--dark-gray);
   --clr-border: var(--light-gray);
-  --clr-text: var(--white);
+  --clr-text: var(--lighter-blue-gray);
   --clr-primary: var(--lighter-green);
   --clr-text-secondary: var(--lighter-blue-gray);
   --nav-height: 3rem;
 }
 
-
+code {
+  display: inline-block;
+  padding: 0.1rem;
+  border-radius: 0.25rem;
+  border: 2px solid var(--clr-outline);
+  background-color: rgba(128, 128, 128, 0.042);
+}
 
 body {
   overflow-x: hidden;
   background-color: var(--clr-background);
   color: var(--clr-text);
-  font-family: "Inter", sans-serif;
+  font-family: "Jetbrains Mono", sans-serif;
   font-weight: 500;
   font-optical-sizing: auto;
   margin: 0;
   padding: 0;
+}
+
+::selection {
+  background-color: var(--light-green);
+  color: #000000;
+}
+
+li {
+  color: var(--clr-text);
 }
 
 a {
@@ -48,7 +63,7 @@ h1 {
   font-weight: normal;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  font-size: 3.6rem;
+  font-size: 4rem;
   border-bottom: 1px solid var(--clr-outline);
 }
 

@@ -40,7 +40,7 @@ onBeforeUnmount(() => {
 
 const categories = [
 {
-    name: 'My Games',
+    name: 'MY GAMES',
     columns: 2,
     items: [
       //{ 
@@ -64,7 +64,7 @@ const categories = [
     ]
   },
   {
-    name: 'Online Stuffs',
+    name: 'ONLINE STUFFS',
     columns: 3,
     items: [
       { 
@@ -87,7 +87,7 @@ const categories = [
       },
       { 
         id: '/armorstand',
-        name: 'Armorstand Poser',
+        name: 'Armorstand',
         description: 'Editor · Minecraft 1.16 - 1.20.4 · Godot · Archive',
         img: '/thumbnails/armorstand.jpg',
       },
@@ -106,7 +106,7 @@ const categories = [
     ]
   },
   {
-    name: 'My Minecraft Resource Packs',
+    name: 'MINECRAFT',
     columns: 2,
     items: [
     {

@@ -16,23 +16,22 @@ import AppIconLink from './links/AppIconLink.vue';
           <AppIconLink icon="fluent:chat-12-filled" title="Projects" to="/gallery" />
         </div>
       </div>
+      <div class="credits">
+        Screenshot by: "csecure." w Chronospic Shaders by "<a href="https://www.patreon.com/u49201970">Jessie</a>"
+      </div>
     </ContentPanel>
   </div>
 </template>
 
 <style scoped>
 
-.hero-video {
-  pointer-events: none;
-  user-select: none;
-  max-width: 100%;
-  object-fit: cover;
-  height: 100%;
-  
+
+.credits {
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
+  bottom: 0.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: #c7cfdd52;
 }
 
 

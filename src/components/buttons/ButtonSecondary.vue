@@ -2,14 +2,14 @@
   <SmartLink :to=to>
     <div class="app-icon-link">
       <Icon :icon="icon" width="30" />
-      <h3>{{ title }}</h3>
+      {{ title }}
     </div>
   </SmartLink>
 </template>
 
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-import SmartLink from "./utils/SmartLink.vue";
+import SmartLink from "../utils/SmartLink.vue";
 defineProps<{
   icon: string,
   title: string,
@@ -19,30 +19,28 @@ defineProps<{
 
 <style scoped>
 .app-icon-link {
+  white-space: collapse ;
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 2.5rem;
   gap: 1rem;
   margin: 0.5rem 0;
-
   padding: 0.25rem 0.5rem;
-  
   
   transition: background-color 0.1s linear;
   
-  backdrop-filter: blur(10px);
-  border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.039);
-  box-shadow: 
-  inset 0 0 1px rgba(255, 255, 255, 0.216),
-  inset 0 1.5px 1px rgba(255, 255, 255, 0.073)
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(179, 179, 179, 0.164);
+  box-sizing: border-box;
   ;
 }
 
 .app-icon-link:hover {
   transition: background-color 0.1s linear;
-  background-color: var(--clr-outline); 
+  color: black;
+  background-color: var(--light-green); 
 }
 
 .app-icon-link h3 {

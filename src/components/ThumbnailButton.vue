@@ -2,7 +2,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import SmartLink from './SmartLink.vue';
+import SmartLink from './utils/SmartLink.vue';
 
 const props = defineProps<{
   title: string,
@@ -40,7 +40,8 @@ const isUrl = computed(() => props.title.startsWith('https://'))
   justify-content: start;
   box-sizing: border-box;
   
-  background-color: rgb(47, 47, 47);
+  background-color: rgba(0, 0, 0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.178);
   overflow: hidden;
   
   background-size: cover;

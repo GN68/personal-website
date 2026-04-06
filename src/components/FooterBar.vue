@@ -2,8 +2,6 @@
 import ContentPanel from './ContentPanel.vue';
 import LogoGN from './LogoGN.vue';
 
-
-
 </script>
 
 <template>
@@ -22,8 +20,8 @@ import LogoGN from './LogoGN.vue';
 <style scoped>
 
 .footer-bar {
-  background-color: rgba(0, 0, 0, 0.111);
-  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
   border-top: 1px solid var(--clr-outline);
   padding: 1rem;
   margin-top: 2rem;

@@ -48,8 +48,8 @@ import ContentPanel from './ContentPanel.vue';
 }
 
 .nav-bar {
-  background-color: rgba(0, 0, 0, 0.111);
-  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--clr-outline);
 
   position: fixed;

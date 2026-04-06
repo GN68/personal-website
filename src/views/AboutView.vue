@@ -1,23 +1,25 @@
 <script setup lang="ts">
 import ContentPanel from '@/components/ContentPanel.vue';
-import IconButtonLink from '@/components/IconButtonLink.vue';
+import IconButtonLink from '@/components/buttons/ButtonSecondary.vue';
 import MarkdownPage from '@/components/MarkdownPage.vue';
 
 </script>
 
 <template>
   <ContentPanel :width=40>
-    <h1>About Me</h1>
+    <h1>ABOUT ME</h1>
     <div class="profile">
       <img src="@/assets/icons/gn.webp" alt="" class="profile-icon"/>
-      <MarkdownPage content='
-# **GNANIMATES**
+      <div class="side-info">
+        <h1 class="nameplate">GNANIMATES</h1>
+        <MarkdownPage content='
 (⌐▰-▰)
 Filipino · Male · 20 Years old
 
 Hi. I am Marc, aka GN. You may know me as **GNUI**, **GN68s** or **GNamimates**.
 one way to identify me is by finding my prefix **GN**
 '></MarkdownPage>
+      </div>
     </div>
 
     <MarkdownPage content="
@@ -30,17 +32,15 @@ I am a **3D Digital Artist** and a **Programmer**. and I like...
 - Making graphic designs in [Inkscape](https://inkscape.org/),
 - Making Sprites with [Aseprite](https://www.aseprite.org/),
 - Editing Films with [Blender](https://www.blender.org/), [Davinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve)
-
-## LINKS
-the best way to contact me is through my Email or Discord"
+"
 ></MarkdownPage>
-<MarkdownPage content="#### Socials"></MarkdownPage>
-<IconButtonLink icon="simple-icons:gmail" title="Email · My Work Email · me@gnon.top" to="mailto:mail@gnon.top"></IconButtonLink>
-<IconButtonLink icon="simple-icons:youtube" title="Youtube · My Animations · GN" to="https://www.youtube.com/@GNamimates"></IconButtonLink>
+<MarkdownPage content="## SOCIALS"></MarkdownPage>
+<IconButtonLink icon="simple-icons:gmail" title="Email   · My Work Email · me@gnon.top" to="mailto:mail@gnon.top"></IconButtonLink>
+<IconButtonLink icon="simple-icons:youtube" title="   Youtube · My Animations · GN" to="https://www.youtube.com/@GNamimates"></IconButtonLink>
 <IconButtonLink icon="simple-icons:github" title="Github · My Repositories · GN68" to="https://github.com/GN68"></IconButtonLink>
 <IconButtonLink icon="simple-icons:discord" title="Discord · My Discord · GN68s" to="https://discord.com/"></IconButtonLink>
 <IconButtonLink icon="simple-icons:bluesky" title="Bluesky · I barely use this · gnon.top" to="https://bsky.app/profile/gnon.top"></IconButtonLink>
-<MarkdownPage content="#### Stores / Downloads"></MarkdownPage>
+<MarkdownPage content="## SHOPS"></MarkdownPage>
 <IconButtonLink icon="simple-icons:kofi" title="Ko-fi · Figura Avatar Comissions · GNanimates · Support me!" to="https://ko-fi.com/gnanimates"></IconButtonLink>
 <IconButtonLink icon="simple-icons:modrinth" title="Modrinth · My Minecraft Resource Packs · GN" to="https://modrinth.com/user/GN"></IconButtonLink>
 <IconButtonLink icon="simple-icons:itchdotio" title="Itch.io · My Games · gnui.itch.io [inactive]" to="https://gnui.itch.io"></IconButtonLink>
@@ -53,7 +53,7 @@ I am currently in my 2nd year of Computer Science in College
   </ContentPanel>
 </template>
 
-<style>
+<style scoped>
 .profile {
   display: flex;
   flex-direction: row;
@@ -61,10 +61,24 @@ I am currently in my 2nd year of Computer Science in College
   gap: 1rem;
 }
 
+.side-info {
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (max-width: 600px) {
   .profile {
     flex-direction: column;
   }
+}
+
+.nameplate {
+  font-weight: bold;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(var(--dark-green), var(--light-green));
+  text-shadow: 0 0 1rem #9ae65f36,0 0 3rem #9ae65f38;
 }
 
 .profile-icon {

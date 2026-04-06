@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@crazydos/vue-markdown": "^1.0.2",
-    "@studio-freight/lenis": "^1.0.42",
     "@tresjs/core": "^4.3.6",
     "@vue/devtools-kit": "^8.0.3",
     "@vueuse/core": "^13.1.0",

@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-import SmartLink from "../SmartLink.vue";
+import SmartLink from "../utils/SmartLink.vue";
 defineProps<{
   icon: string,
   title: string,
