@@ -2,7 +2,6 @@
 import ContentPanel from '@/components/ContentPanel.vue';
 import ButtonSecondary from '@/components/buttons/ButtonSecondary.vue';
 import MarkdownPage from '@/components/MarkdownPage.vue';
-
 </script>
 
 <template>

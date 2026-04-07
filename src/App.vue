@@ -21,7 +21,7 @@ import FooterBar from './components/FooterBar.vue';
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.1s ease;
+  transition: all 0.05s ease;
 }
 
 .fade-enter-from,

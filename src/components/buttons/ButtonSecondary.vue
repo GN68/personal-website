@@ -35,29 +35,39 @@ defineProps<{
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+
+.app-icon-link:hover {
+  transition: background-color 0.1s linear;
+  color: black;
+  background-image: linear-gradient(to bottom, var(--light-green), var(--green));
+}
+
+
+
 .app-icon-link::after {
   --clr-outline: var(--light-green);
   --corner-size: 8px;
-  
+
   position: absolute;
   content: "";
   inset: 0;
   border-image-slice: 8px;
   background:
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
-  
+    linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
+    linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
+    linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
+    linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
+
+    linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
+    linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
+    linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
+    linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
+
   background-repeat: no-repeat;
-  background-size: var(--corner-size) var(--corner-size); /* Length of the corner bars */
+  background-size: var(--corner-size) var(--corner-size);
+  /* Length of the corner bars */
   transition: all 0.05s ease-in-out;
-  
+
   border: 1px solid rgba(255, 255, 255, 0.158);
 }
 
@@ -69,28 +79,24 @@ defineProps<{
   inset: -4px;
   border-image-slice: 8px;
   background:
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
-  
+    linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
+    linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
+    linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
+    linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
+
+    linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
+    linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
+    linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
+    linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
+
   background-repeat: no-repeat;
-  background-size: var(--corner-size) var(--corner-size); /* Length of the corner bars */
+  background-size: var(--corner-size) var(--corner-size);
+  /* Length of the corner bars */
   transition: all 0.05s ease-in-out;
 }
 
 
 
-.app-icon-link:hover {
-  transition: background-color 0.1s linear;
-  color: black;
-  background-color: var(--light-green);
-}
 
 .app-icon-link h3 {
   margin: 0;
