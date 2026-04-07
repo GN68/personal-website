@@ -41,7 +41,7 @@ I am a **3D Digital Artist** and a **Programmer**. and I like...
 <ButtonSecondary icon="simple-icons:discord" title="Discord · My Discord · GN68s" to="https://discord.com/"></ButtonSecondary>
 <ButtonSecondary icon="simple-icons:bluesky" title="Bluesky · I barely use this · gnon.top" to="https://bsky.app/profile/gnon.top"></ButtonSecondary>
 <MarkdownPage content="## SHOPS"></MarkdownPage>
-<ButtonSecondary icon="simple-icons:kofi" title="Ko-fi · Figura Avatar Commissions · GNanimates · Support me!" to="https://ko-fi.com/gnanimates"></ButtonSecondary>
+<ButtonSecondary icon="simple-icons:kofi" title="Ko-fi · Figura Avatar Commissions · Support me!" to="https://ko-fi.com/gnanimates"></ButtonSecondary>
 <ButtonSecondary icon="simple-icons:modrinth" title="Modrinth · My Minecraft Resource Packs · GN" to="https://modrinth.com/user/GN"></ButtonSecondary>
 <ButtonSecondary icon="simple-icons:itchdotio" title="Itch.io · My Games · gnui.itch.io [inactive]" to="https://gnui.itch.io"></ButtonSecondary>
 <ButtonSecondary icon="simple-icons:sketchfab" title="Fab · My Models [Empty] · GNamimates [inactive]" to="https://modrinth.com/user/GN"></ButtonSecondary>

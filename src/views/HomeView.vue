@@ -12,7 +12,7 @@ import ButtonSecondary from '@/components/buttons/ButtonSecondary.vue';
         <p>Programmer, 3D Animator, Graphic Designer, and UI Lover</p>
         <div class="socials">
           <ButtonSecondary class="social" icon="material-symbols:chat-info" title="About" to="/about" />
-          <ButtonSecondary class="social" icon="wordpress:gallery" title="Gallery" to="/about" />
+          <ButtonSecondary class="social" icon="wordpress:gallery" title="Gallery" to="/gallery" />
         </div>
       </div>
       <div class="credits">

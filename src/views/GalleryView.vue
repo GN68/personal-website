@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import ContentPanel from '@/components/ContentPanel.vue';
-import ThumbnailButton from '@/components/ThumbnailButton.vue';
+import ThumbnailButton from '@/components/buttons/ThumbnailButton.vue';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 const aspectRatio = ref(1.777)
 
