@@ -29,7 +29,7 @@ defineProps<{
   padding: 0.1rem 0.5rem;
   line-height: 1.2rem;
 
-  transition: background-color 0.1s linear;
+  transition: background-color 0.05s linear;
 
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.3);
@@ -56,7 +56,7 @@ defineProps<{
   
   background-repeat: no-repeat;
   background-size: var(--corner-size) var(--corner-size); /* Length of the corner bars */
-  transition: all 0.2s ease-in-out;
+  transition: all 0.05s ease-in-out;
   
   border: 1px solid rgba(255, 255, 255, 0.158);
 }
@@ -81,7 +81,7 @@ defineProps<{
   
   background-repeat: no-repeat;
   background-size: var(--corner-size) var(--corner-size); /* Length of the corner bars */
-  transition: all 0.2s ease-in-out;
+  transition: all 0.05s ease-in-out;
 }
 
 
