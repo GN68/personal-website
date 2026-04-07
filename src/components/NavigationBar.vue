@@ -83,6 +83,8 @@ div.content {
 }
 
 .link {
+  box-sizing: border-box;
+  position: relative;
   color: var(--clr-text);
   padding-left: 1rem;
   padding-right: 1rem;
@@ -91,10 +93,26 @@ div.content {
   align-items: center;
 }
 
-.link.router-link-active {
-  box-sizing: border-box;
-  color: black;
-  background-image: linear-gradient(var(--dark-green), var(--light-green));
-  border-bottom: 1px solid var(--lighter-green);
+.link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid var(--light-green);
+  transition: all 0.2s ease-in-out;
 }
+
+.link.router-link-active {
+  
+  color: black;
+}
+
+.link.router-link-active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 4rem solid var(--light-green);
+  transition: all 0.2s ease-in-out;
+  z-index: -1;
+}
+
 </style>

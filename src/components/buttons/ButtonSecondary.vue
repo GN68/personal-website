@@ -19,8 +19,8 @@ defineProps<{
 
 <style scoped>
 .app-icon-link {
-  white-space: collapse ;
   display: flex;
+  position: relative;
   flex-direction: row;
   align-items: center;
   height: 2.5rem;
@@ -28,19 +28,68 @@ defineProps<{
   margin: 0.5rem 0;
   padding: 0.1rem 0.5rem;
   line-height: 1.2rem;
-  
+
   transition: background-color 0.1s linear;
-  
+
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(179, 179, 179, 0.164);
-  ;
 }
+
+.app-icon-link::after {
+  --clr-outline: var(--light-green);
+  --corner-size: 8px;
+  
+  position: absolute;
+  content: "";
+  inset: 0;
+  border-image-slice: 8px;
+  background:
+  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
+  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
+  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
+  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
+  
+  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
+  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
+  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
+  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
+  
+  background-repeat: no-repeat;
+  background-size: var(--corner-size) var(--corner-size); /* Length of the corner bars */
+  transition: all 0.2s ease-in-out;
+  
+  border: 1px solid rgba(255, 255, 255, 0.158);
+}
+
+
+.app-icon-link:hover::after {
+  --clr-outline: white;
+  position: absolute;
+  content: "";
+  inset: -4px;
+  border-image-slice: 8px;
+  background:
+  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
+  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
+  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
+  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
+  
+  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
+  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
+  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
+  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
+  
+  background-repeat: no-repeat;
+  background-size: var(--corner-size) var(--corner-size); /* Length of the corner bars */
+  transition: all 0.2s ease-in-out;
+}
+
+
 
 .app-icon-link:hover {
   transition: background-color 0.1s linear;
   color: black;
-  background-color: var(--light-green); 
+  background-color: var(--light-green);
 }
 
 .app-icon-link h3 {
@@ -48,5 +97,4 @@ defineProps<{
   font-size: 12pt;
   font-weight: normal;
 }
-
 </style>

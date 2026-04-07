@@ -18,6 +18,8 @@ defineProps<{
 </script>
 
 <style scoped>
+
+
 .app-icon-link {
   display: flex;
   flex-direction: row;
