@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ContentPanel from '@/components/ContentPanel.vue';
-import IconButtonLink from '@/components/buttons/ButtonSecondary.vue';
+import ButtonSecondary from '@/components/buttons/ButtonSecondary.vue';
 import MarkdownPage from '@/components/MarkdownPage.vue';
 
 </script>
@@ -35,16 +35,16 @@ I am a **3D Digital Artist** and a **Programmer**. and I like...
 "
 ></MarkdownPage>
 <MarkdownPage content="## SOCIALS"></MarkdownPage>
-<IconButtonLink icon="simple-icons:gmail" title="Email   · My Work Email · me@gnon.top" to="mailto:mail@gnon.top"></IconButtonLink>
-<IconButtonLink icon="simple-icons:youtube" title="   Youtube · My Animations · GN" to="https://www.youtube.com/@GNamimates"></IconButtonLink>
-<IconButtonLink icon="simple-icons:github" title="Github · My Repositories · GN68" to="https://github.com/GN68"></IconButtonLink>
-<IconButtonLink icon="simple-icons:discord" title="Discord · My Discord · GN68s" to="https://discord.com/"></IconButtonLink>
-<IconButtonLink icon="simple-icons:bluesky" title="Bluesky · I barely use this · gnon.top" to="https://bsky.app/profile/gnon.top"></IconButtonLink>
+<ButtonSecondary icon="simple-icons:gmail" title="Email   · My Work Email · me@gnon.top" to="mailto:mail@gnon.top"></ButtonSecondary>
+<ButtonSecondary icon="simple-icons:youtube" title="   Youtube · My Animations · GN" to="https://www.youtube.com/@GNamimates"></ButtonSecondary>
+<ButtonSecondary icon="simple-icons:github" title="Github · My Repositories · GN68" to="https://github.com/GN68"></ButtonSecondary>
+<ButtonSecondary icon="simple-icons:discord" title="Discord · My Discord · GN68s" to="https://discord.com/"></ButtonSecondary>
+<ButtonSecondary icon="simple-icons:bluesky" title="Bluesky · I barely use this · gnon.top" to="https://bsky.app/profile/gnon.top"></ButtonSecondary>
 <MarkdownPage content="## SHOPS"></MarkdownPage>
-<IconButtonLink icon="simple-icons:kofi" title="Ko-fi · Figura Avatar Commissions · GNanimates · Support me!" to="https://ko-fi.com/gnanimates"></IconButtonLink>
-<IconButtonLink icon="simple-icons:modrinth" title="Modrinth · My Minecraft Resource Packs · GN" to="https://modrinth.com/user/GN"></IconButtonLink>
-<IconButtonLink icon="simple-icons:itchdotio" title="Itch.io · My Games · gnui.itch.io [inactive]" to="https://gnui.itch.io"></IconButtonLink>
-<IconButtonLink icon="simple-icons:sketchfab" title="Fab · My Models [Empty] · GNamimates [inactive]" to="https://modrinth.com/user/GN"></IconButtonLink>
+<ButtonSecondary icon="simple-icons:kofi" title="Ko-fi · Figura Avatar Commissions · GNanimates · Support me!" to="https://ko-fi.com/gnanimates"></ButtonSecondary>
+<ButtonSecondary icon="simple-icons:modrinth" title="Modrinth · My Minecraft Resource Packs · GN" to="https://modrinth.com/user/GN"></ButtonSecondary>
+<ButtonSecondary icon="simple-icons:itchdotio" title="Itch.io · My Games · gnui.itch.io [inactive]" to="https://gnui.itch.io"></ButtonSecondary>
+<ButtonSecondary icon="simple-icons:sketchfab" title="Fab · My Models [Empty] · GNamimates [inactive]" to="https://modrinth.com/user/GN"></ButtonSecondary>
 <MarkdownPage content="
 ## EDUCATION
 I am currently in my 2nd year of Computer Science in College

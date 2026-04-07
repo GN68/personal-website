@@ -7,7 +7,7 @@
         <div class="nav-links">
           <RouterLink to="/" class="link">Home</RouterLink>
           <RouterLink to="/about" class="link">About</RouterLink>
-          <RouterLink to="/gallery" class="link">Projects</RouterLink>
+          <RouterLink to="/gallery" class="link">Gallery</RouterLink>
         </div>
       </div>
     </ContentPanel>
@@ -88,6 +88,8 @@ div.content {
   color: var(--clr-text);
   padding-left: 1rem;
   padding-right: 1rem;
+  width: 6rem;
+  justify-content: center;
   height: 100%;
   display: flex;
   align-items: center;
