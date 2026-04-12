@@ -65,6 +65,7 @@ h1 {
   margin-bottom: 1rem;
   font-size: 4rem;
   border-bottom: 1px solid var(--clr-outline);
+  scroll-margin-top: 6rem
 }
 
 @media screen and (max-width: 600px) {
@@ -83,6 +84,7 @@ h2 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 2rem;
+  scroll-margin-top: 4rem
 }
 
 h3 {
@@ -91,6 +93,7 @@ h3 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
+  scroll-margin-top: 2.5rem
 }
 
 h4 {
@@ -99,6 +102,7 @@ h4 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
+  scroll-margin-top: 2.5rem
 }
 
 textarea {
@@ -117,8 +121,9 @@ textarea:focus {
 }
 
 button {
-  background-color: var(--dark-green);
-  border: 2px solid rgba(255, 255, 255, 0.196);
+  font-family: 'Jetbrains Mono', sans-serif;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.196);
   border-radius: 0.25rem;
   color: var(--clr-text);
   padding: 0.5rem;
@@ -127,6 +132,12 @@ button {
   padding-right: 2rem;
 }
 
+button:hover {
+  background-color: #ffffff1e;
+  color: white;
+}
+
 button:active {
-  background-color: var(--darker-green);
+  color: white;
+  background-color: transparent;
 }

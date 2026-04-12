@@ -7,7 +7,6 @@ import TextRandom from '@/components/TextRandom.vue';
 </script>
 <template>
   <div>
-
     <ContentPanel :width="50">
       <div class="hero-text-container">
         <h1>Hi! I am <span class="highlight">GN</span></h1>

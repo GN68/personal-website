@@ -1,80 +1,90 @@
 <script setup lang="ts">
-import { VueMarkdown ,type CustomAttrs } from '@crazydos/vue-markdown';
-import remarkGfm from 'remark-gfm';
-const props = defineProps<{
-  content: string
-}>()
+import { onMounted, watch, nextTick } from 'vue'
+import { VueMarkdown, type PluggableList } from '@crazydos/vue-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeHighlight from 'rehype-highlight'
+import 'highlight.js/styles/github-dark.css'
 
-const customAttrs: CustomAttrs = {
-  // use html tag name as key
-  h1: { 'class': ["header","header1"] },
-  h2: { 'class': ["header","header2"] },
-  h3: { 'class': ["header","header3"] },
-  h4: { 'class': ["header","header4"] },
-  p: { 'class': ["paragraph"] },
-  li: { 'class': ["line-item"] },
-  strong: { 'class': ["bold"] },
-  //a: { target: '_blank', rel: "noopener noreferrer" }
+const props = defineProps<{ content: string }>()
+
+const remarkPlugins: PluggableList = [remarkGfm]
+const rehypePlugins: PluggableList = [
+  rehypeSlug,
+  [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+  rehypeHighlight,
+]
+
+function scrollToHash() {
+  const hash = window.location.hash
+  if (!hash) return
+  setTimeout(() => {
+    document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
+  }, 50)
 }
+
+function addCopyButtons() {
+  // Remove any existing buttons first (in case of re-render)
+  document.querySelectorAll('.copy-code-btn').forEach(btn => btn.remove())
+
+  document.querySelectorAll('pre code').forEach(codeEl => {
+    const pre = codeEl.parentElement!
+
+    // Make sure pre is positioned so the button can be absolute
+    pre.style.position = 'relative'
+
+    const btn = document.createElement('button')
+    btn.className = 'copy-code-btn'
+    btn.textContent = 'copy'
+
+    btn.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(codeEl.textContent ?? '')
+      btn.textContent = 'copied'
+      setTimeout(() => (btn.textContent = 'Copy'), 2000)
+    })
+
+    pre.appendChild(btn)
+  })
+}
+
+onMounted(async () => {
+  scrollToHash()
+  await nextTick()
+  addCopyButtons()
+})
+
+watch(() => props.content, async () => {
+  scrollToHash()
+  await nextTick()
+  addCopyButtons()
+})
 </script>
 
 <template>
-  <VueMarkdown :markdown="props.content" :custom-attrs="customAttrs" :remark-plugins="[remarkGfm]" />
+  <VueMarkdown :markdown="props.content" :remark-plugins="remarkPlugins" :rehype-plugins="rehypePlugins" />
 </template>
 
 <style scoped>
+/* Can't use scoped for dynamically injected elements, use :deep or global */
+</style>
 
-.paragraph {
-  color: var(--clr-text-secondary);
-  line-height: 1.2rem;
+<style>
+.copy-code-btn {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.1s;
 }
 
-.line-item {
-  color: var(--clr-text-secondary);
-  margin: 0.4rem 0;
+pre:hover .copy-code-btn {
+  opacity: 1;
 }
 
-.bold {
-  font-weight: bold;
-  color: var(--green);
+.copy-code-btn:hover {
 }
-
-.header {
-  font-family: "Roboto Condensed";
-  font-weight: normal;
-}
-
-.header1 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  font-size: 4rem;
-  border-bottom: 1px solid var(--clr-outline);
-}
-
-.header2 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  border-top: 1px solid var(--clr-outline);
-  padding-top: 1rem;
-}
-
-.header3 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.header4 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-}
-
-@media screen and (max-width: 600px) {
-  .header1 {
-    font-size: 3.5rem;
-  }
-}
-
 </style>
