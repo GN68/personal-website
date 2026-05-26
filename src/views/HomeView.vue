@@ -3,6 +3,13 @@
 import ContentPanel from '@/components/ContentPanel.vue';
 import ButtonSecondary from '@/components/buttons/ButtonSecondary.vue';
 import TextRandom from '@/components/TextRandom.vue';
+import { useHead } from '@vueuse/head';
+useHead({
+  title: 'Home',
+  meta: [
+    { name: 'description', content: 'The main page of this website' }
+  ]
+});
 
 </script>
 <template>
