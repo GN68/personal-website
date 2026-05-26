@@ -67,8 +67,8 @@ onMounted(async () => {
     const rawUrl = srcUrl
       .replace("https://github.com/", "https://raw.githubusercontent.com/")
       .replace("/blob/", "/");
-
-    const parts = rawUrl.split("/");
+    
+      const parts = rawUrl.split("/");
     fileName.value = parts[parts.length - 1] || "downloaded-file";
 
     // Try to load corresponding .md file

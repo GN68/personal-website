@@ -23,6 +23,7 @@ declare module 'vue' {
     InlineIcon: typeof import('./src/components/InlineIcon.vue')['default']
     LogoGN: typeof import('./src/components/LogoGN.vue')['default']
     MarkdownPage: typeof import('./src/components/MarkdownPage.vue')['default']
+    MarkdownView: typeof import('./src/components/MarkdownView.vue')['default']
     ModeToggle: typeof import('./src/components/ModeToggle.vue')['default']
     NavigationBar: typeof import('./src/components/NavigationBar.vue')['default']
     PanelWarning: typeof import('./src/components/panels/PanelWarning.vue')['default']
