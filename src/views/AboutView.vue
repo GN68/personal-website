@@ -2,15 +2,6 @@
 import ContentPanel from '@/components/ContentPanel.vue';
 import ButtonSecondary from '@/components/buttons/ButtonSecondary.vue';
 import MarkdownPage from '@/components/MarkdownPage.vue';
-import Head from '@vueuse/head';
-
-Head.useHead({
-  title: 'About Me',
-  meta: [
-    { name: 'description', content: 'The description about the create of this website' }
-  ]
-});
-
 </script>
 
 <template>

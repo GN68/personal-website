@@ -22,17 +22,8 @@
 <script setup lang="ts">
 import ContentPanel from '@/components/ContentPanel.vue';
 import ThumbnailButton from '@/components/buttons/ThumbnailButton.vue';
-import { useHead } from '@vueuse/head';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 const aspectRatio = ref(1.777)
-
-
-useHead({
-  title: 'Gallery',
-  meta: [
-    { name: 'description', content: 'Contains all the projects the creator of this website has made' }
-  ]
-});
 
 const checkAspectRatio = () => {
   aspectRatio.value = window.innerWidth / window.innerHeight
