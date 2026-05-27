@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, watch, nextTick } from 'vue'
-import { VueMarkdown, type PluggableList } from '@crazydos/vue-markdown'
+import { VueMarkdown } from '@crazydos/vue-markdown'
+import type { PluggableList } from 'unified'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'

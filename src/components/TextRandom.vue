@@ -8,7 +8,7 @@ const props = defineProps<{
 const display = ref('')
 const intervalMs = 8000 // 👈 change this to control how often it swaps
 
-let interval: number
+let interval: ReturnType<typeof setTimeout>
 
 let currentLine = 0
 
