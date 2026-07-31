@@ -16,6 +16,7 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
+  backdrop-filter: blur(6rem);
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("@/assets/wallpapers/trees.webp");
   z-index: -99;
 }

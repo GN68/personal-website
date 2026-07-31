@@ -10,21 +10,17 @@ import Components from 'unplugin-vue-components/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    vue({
-      ...templateCompilerOptions
-    }),
-    vueDevTools(),
-    AutoImport({
-      imports: ['vue'],
-      dts: true
-    }),
-    Components({
-      dts: true
-    })
-  ],
+  vue({
+    ...templateCompilerOptions,
+  }),
+  AutoImport({
+    imports: ['vue'],
+    dts: true,
+  }),
+],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
+  alias: {
+    '@': fileURLToPath(new URL('./src', import.meta.url)),
   },
+},
 })

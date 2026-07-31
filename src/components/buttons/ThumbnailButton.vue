@@ -1,31 +1,51 @@
-
-
 <script setup lang="ts">
-import { computed } from 'vue';
-import SmartLink from '@/components/utils/SmartLink.vue';
+import { computed } from 'vue'
+import SmartLink from '@/components/utils/SmartLink.vue'
 
 const props = defineProps<{
-  title: string,
-  desc: string,
-  img?: string,
-  id: string
+  title?: string
+  desc?: string
+  img?: string
+  id?: string
 }>()
 
-
-const isUrl = computed(() => props.title.startsWith('https://'))
-
+const hasContent = computed(() => !!(props.title || props.desc))
+const isDisabled = computed(() => !props.id)
+const isUrl = computed(() => props.title?.startsWith('https://') ?? false)
 </script>
 
 <template>
-  <SmartLink :to="id" class="card">
-    <div class="thumbnail" :style="{ backgroundImage: `url(${img})` }">
+  <component
+    :is="id ? SmartLink : 'div'"
+    :to="id"
+    class="card"
+    :class="{
+      'image-only': !hasContent,
+      'disabled': isDisabled
+    }"
+  >
+    <div
+      class="thumbnail"
+      :style="img ? { backgroundImage: `url(${img})` } : undefined"
+    />
+
+    <div v-if="hasContent" class="card-content">
+      <img
+        v-if="isUrl"
+        :src="title"
+        style="max-height: 4rem; max-width: 100%;"
+        class="title"
+      />
+
+      <h1 v-else-if="title" class="title">
+        {{ title }}
+      </h1>
+
+      <div v-if="desc" class="description">
+        {{ desc }}
+      </div>
     </div>
-    <div class="card-content">
-      <img v-if="isUrl" :src="title" style="max-height: 4rem; max-width: 100%;" class="title"/>
-      <h1 v-else class="title">{{ title }}</h1>
-      <div class="description"> {{ desc }} </div>
-    </div>
-  </SmartLink>
+  </component>
 </template>
 
 <style scoped>
@@ -33,25 +53,23 @@ const isUrl = computed(() => props.title.startsWith('https://'))
   color: var(--clr-text);
   border-radius: 2px;
   height: 25rem;
-  
+
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: start;
   box-sizing: border-box;
-  
-  background-color: rgba(0, 0, 0,0.5);
+
+  background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.178);
-  
+
   background-size: cover;
   background-position: center;
-  
-  position: relative;
+
   transition: all 0.1s ease-in-out;
 }
 
 .card:hover {
-  transition: all 0.1s ease-in-out;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -59,76 +77,89 @@ const isUrl = computed(() => props.title.startsWith('https://'))
 .card::after {
   --clr-outline: var(--white);
   --corner-size: 16px;
-  
+
   position: absolute;
   content: "";
   inset: -3px;
-  border-image-slice: 8px;
+
   background:
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
-  
+    linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
+    linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
+    linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
+    linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
+
+    linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
+    linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
+    linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
+    linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
+
   background-repeat: no-repeat;
-  background-size: var(--corner-size) var(--corner-size); /* Length of the corner bars */
-  transition: all 0.1s ease-in-out;
-  
+  background-size: var(--corner-size) var(--corner-size);
+
   border: 1px solid rgba(255, 255, 255, 0.158);
+  transition: all 0.1s ease-in-out;
 }
 
 .card:hover::after {
   --clr-outline: var(--light-green);
-  position: absolute;
-  content: "";
   inset: -8px;
-  border-image-slice: 8px;
-  background:
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
-  
-  background-repeat: no-repeat;
-  background-size: var(--corner-size) var(--corner-size); /* Length of the corner bars */
-  transition: all 0.05s ease-in-out;
 }
+
+/* Disabled */
+
+.card.disabled {
+  cursor: default;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.card.disabled .card-content {
+  opacity: 0.6;
+}
+
+.card.disabled::after,
+.card.disabled:hover::after {
+  --clr-outline: #666;
+  inset: -3px;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.card.disabled:hover {
+  color: var(--clr-text);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+/* Thumbnail */
 
 .thumbnail {
   width: 100%;
-  height: 60%;
+  height: 70%;
   background-size: cover;
   background-position: center;
   z-index: 0;
 }
 
+.card.image-only .thumbnail {
+  height: 100%;
+}
 
+/* Content */
 
 .card-content {
-  text-overflow: ellipsis;  
-  width:auto;
+  width: auto;
   display: flex;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
   flex-direction: column;
   align-items: start;
   justify-content: start;
+
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+
+  text-overflow: ellipsis;
 }
 
 .title {
-  z-index: 1;
   margin: 0;
   display: block;
+  z-index: 1;
 }
 
 .description {

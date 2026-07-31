@@ -24,6 +24,7 @@ defineProps<{
   flex-direction: row;
   align-items: center;
   height: 2.5rem;
+  white-space-collapse: preserve-spaces;
   gap: 1rem;
   margin: 0.5rem 0;
   padding: 0.1rem 0.5rem;
