@@ -168,7 +168,7 @@ const categories = [
       {
         id: 'https://ko-fi.com/s/ba0e6c2e09',
         name: 'Mesmerizer Miku',
-        description: '2025 · 3D Model · Character',
+        description: '2026 · 3D Model · Character',
         img: 'https://storage.ko-fi.com/cdn/useruploads/display/e79f0f9b-47f4-48a6-994e-d23d96350a06_2026-07-08_02.52.58.png'
       },
       {
@@ -238,8 +238,8 @@ const categories = [
     columns: 1,
     items: [
       {
-        id: 'https://img.itch.zone/aW1hZ2UvNDgyMDU0NS8yODc5NzYyNi5wbmc=/original/xRNw07.png',
-        img: 'https://img.itch.zone/aW1hZ2UvNDgyMDU0NS8yODc5NzYyNi5wbmc=/original/xRNw07.png'
+        id: 'https://file.garden/amzn9DRaFl15oZ6U/gn-itch-io-paint-favor-2560x1080.png',
+        img: 'https://file.garden/amzn9DRaFl15oZ6U/gn-itch-io-paint-favor-2560x1080.png'
       },
       {
         id: 'https://file.garden/amzn9DRaFl15oZ6U/blackhole.png',
