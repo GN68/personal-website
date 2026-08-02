@@ -12,17 +12,15 @@ import MarkdownPage from '@/components/MarkdownPage.vue';
       <div class="side-info">
         <h1 class="nameplate">GN<span class="smallcaps">ANIMATES</span></h1>
         <MarkdownPage content='
-(⌐▰-▰)
-Filipino · Male · 20 years alive
 
-Hi. I am Marc, aka GN. You may know me as **GNUI**, **GN68s** or **GNanimates**.
-one way to identify me is by finding my prefix **GN**
+/// Filipino · Male · 21 Years old
+
+Sup, im Marc; aka **GN**. You may know me as **GNUI**, **GN68s** or **GNanimates**.
 '></MarkdownPage>
       </div>
     </div>
 
     <MarkdownPage content="
-
 
 ## INTERESTS N' HOBBIES
 I am a **3D Digital Artist** and a **Programmer**. and I like...  
@@ -50,8 +48,10 @@ All my work are from hours of blood sweat and tears
 <MarkdownPage content="
 ## EDUCATION
 I am currently in my 3rd year of Computer Science in College!
-    "
+"
     ></MarkdownPage>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <center><a  href="vent/">[Show me the Real you]</a></center>
   </ContentPanel>
 </template>
 

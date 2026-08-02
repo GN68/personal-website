@@ -18,6 +18,11 @@ const routes = [
     component: () => import('../views/AboutView.vue'),
   },
   {
+    path: '/vent',
+    name: 'vent',
+    component: () => import('../views/KebabView.vue'),
+  },
+  {
     path: '/gallery',
     name: 'gallery',
     component: GalleryView
