@@ -51,7 +51,7 @@ I am currently in my 3rd year of Computer Science in College!
 "
     ></MarkdownPage>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <center><a  href="vent/">[Show me the Real you]</a></center>
+  <center><a  href="vent/">[Vent Version]</a></center>
   </ContentPanel>
 </template>
 

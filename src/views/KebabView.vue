@@ -26,10 +26,10 @@ hi, im Marc; and im more than just the good 3D modeller and Programmer **GN**
     <MarkdownPage content="
 
 ## INTERESTS N' HOBBIES
-- My favorite food is the **Club House Sandwitch**! and fries
+- My favorite food is the **Club House Sandwitch**! and **Authentic brewed iced tea**!
 - The color Green gives me great comfort from happy memories
-- I never invited anyone to my Birthdays,
-- I am trapped in my own success
+- I have massive trust issues after incidents in Grade 11
+- I am trapped in my own success, theres no going back now!!
 
 #
 
