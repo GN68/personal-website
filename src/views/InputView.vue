@@ -29,6 +29,39 @@ onMounted(() => {
   });
 });
 
+async function quickCopy() {
+  try {
+    await navigator.clipboard.writeText(textInput.value);
+    errorMessage.value = "Copied to clipboard";
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      errorMessage.value = error.message;
+    } else {
+      errorMessage.value = "Unknown Error from writting to Clipboard";
+    }
+  }
+}
+
+// I did not test this lmao
+async function quickPaste() {
+  if (!navigator?.clipboard) {
+    errorMessage.value = "Browser deadass dosent support setting the clipboard"
+  }
+  
+  try {
+    const text = await navigator.clipboard.readText();
+    textInput.value = text
+    await syncText();
+  } catch (error) {
+    if (error instanceof Error) {
+      errorMessage.value = `Failed to read clipboard data: ${error.message}`;
+    } else {
+      errorMessage.value = "Unknown Error reading from Clipboard";
+    }
+  }
+}
+
+
 </script>
 
 <template>
@@ -36,7 +69,11 @@ onMounted(() => {
     <div class="content">
       <div class="error" ref="errorText"> {{ errorMessage }}</div>
       <textarea class="input" v-model="textInput" />
-      <button class="app-icon-link" @click="syncText">SUBMIT CHANGES</button>
+      <div class="toolbar">
+        <button class="app-icon-link" @click="quickCopy">QUICK COPY</button>
+        <button class="app-icon-link" @click="quickPaste">QUICK PASTE</button>
+        <button class="app-icon-link" @click="syncText">SUBMIT CHANGES</button>
+      </div>
     </div>
   </ContentPanel>
 </template>
@@ -50,8 +87,14 @@ onMounted(() => {
   align-items: center;
 }
 
+div.toolbar {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
 .input {
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 2px;
   height: calc(100vh - 14rem);
 }
@@ -81,26 +124,27 @@ onMounted(() => {
 .app-icon-link::after {
   --clr-outline: var(--light-green);
   --corner-size: 8px;
-  
+
   position: absolute;
   content: "";
   inset: 0;
   border-image-slice: 8px;
   background:
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
-  
+    linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
+    linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
+    linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
+    linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
+
+    linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
+    linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
+    linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
+    linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
+
   background-repeat: no-repeat;
-  background-size: var(--corner-size) var(--corner-size); /* Length of the corner bars */
+  background-size: var(--corner-size) var(--corner-size);
+  /* Length of the corner bars */
   transition: all 0.2s ease-in-out;
-  
+
   border: 1px solid rgba(255, 255, 255, 0.158);
 }
 
@@ -112,18 +156,19 @@ onMounted(() => {
   inset: -4px;
   border-image-slice: 8px;
   background:
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
-  
-  linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
-  linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
-  linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
-  
+    linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 0,
+    linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 0 0,
+    linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 0,
+    linear-gradient(to bottom, var(--clr-outline) 1px, transparent 1px) 100% 0,
+
+    linear-gradient(to right, var(--clr-outline) 1px, transparent 1px) 0 100%,
+    linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 0 100%,
+    linear-gradient(to left, var(--clr-outline) 1px, transparent 1px) 100% 100%,
+    linear-gradient(to top, var(--clr-outline) 1px, transparent 1px) 100% 100%;
+
   background-repeat: no-repeat;
-  background-size: var(--corner-size) var(--corner-size); /* Length of the corner bars */
+  background-size: var(--corner-size) var(--corner-size);
+  /* Length of the corner bars */
   transition: all 0.2s ease-in-out;
 }
 
@@ -132,5 +177,4 @@ onMounted(() => {
   color: black;
   background-color: var(--light-green);
 }
-
 </style>
