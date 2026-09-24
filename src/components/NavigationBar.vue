@@ -5,9 +5,9 @@
       <div class="separator">
         <LogoGN />
         <div class="nav-links">
-          <RouterLink to="/" class="link">Home</RouterLink>
-          <RouterLink to="/about" class="link">About</RouterLink>
-          <RouterLink to="/gallery" class="link">Gallery</RouterLink>
+          <RouterLink to="/" class="link">About</RouterLink>
+          <RouterLink to="/library" class="link">Library</RouterLink>
+          <RouterLink to="/widgets" class="link">Widgets</RouterLink>
         </div>
       </div>
     </ContentPanel>
@@ -89,32 +89,16 @@ div.content {
   padding-left: 1rem;
   padding-right: 1rem;
   width: 6rem;
+  background-color: transparent;
   justify-content: center;
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-.link::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-top: 1px solid var(--light-green);
-  transition: all 0.2s ease-in-out;
-}
-
 .link.router-link-active {
-  
+  background-color: var(--light-green);
   color: black;
-}
-
-.link.router-link-active::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-top: 4rem solid var(--light-green);
-  transition: all 0.2s ease-in-out;
-  z-index: -1;
 }
 
 </style>

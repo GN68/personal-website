@@ -5,17 +5,16 @@ import MarkdownPage from '@/components/MarkdownPage.vue';
 </script>
 
 <template>
-  <ContentPanel :width=40>
-    <h1>About Me</h1>
-    <div class="profile">
+  <ContentPanel class="ContentPanelOverride">
+    <div class="with-limiter">
+      <div class="profile">
       <img src="@/assets/icons/gn.webp" alt="" class="profile-icon"/>
       <div class="side-info">
         <h1 class="nameplate">GN<span class="smallcaps">ANIMATES</span></h1>
         <MarkdownPage content='
+// Filipino · Male · 21 Years old
 
-/// Filipino · Male · 21 Years old
-
-Sup, im Marc; aka **GN**. You may know me as **GNUI**, **GN68s** or **GNanimates**.
+//Sup, im Marc; aka **GN**. You may know me as **GNUI**, **GN68s** or **GNanimates**.
 '></MarkdownPage>
       </div>
     </div>
@@ -47,15 +46,27 @@ All my work are from hours of blood sweat and tears
 <ButtonSecondary icon="simple-icons:youtube"   title="Youtube  | My Animations, as GNanimates" to="https://www.youtube.com/@GNamimates"></ButtonSecondary>
 <MarkdownPage content="
 ## EDUCATION
-I am currently in my 3rd year of Computer Science in College!
+I am currently in my 3rd year of Computer Science in College! (time flies)
 "
     ></MarkdownPage>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <center><a  href="vent/">[Vent Version]</a></center>
+  <center><a  href="vent/">Fent</a></center>
+    </div>
   </ContentPanel>
 </template>
 
 <style scoped>
+
+.ContentPanelOverride {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.with-limiter {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+}
+
 .profile {
   display: flex;
   flex-direction: row;

@@ -1,19 +1,25 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordInfo, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import GalleryView from '@/views/GalleryView.vue'
 import GalleryItemView from '@/views/GalleryItemView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import InputView from '@/views/InputView.vue'
 import DownloadView from '../views/DownloadView.vue'
+import WidgetsView from '@/views/WidgetsView.vue'
+import BackgroundGrid from '@/components/backgrounds/BackgroundGrid.vue'
+import BackgroundWidgets from '@/components/backgrounds/backgroundWidgets.vue'
 
-const routes = [
+const routes: RouteRecordRaw[] = [
+  //{
+  //  path: '/',
+  //  name: 'home',
+  //  meta: {
+  //    background: BackgroundGrid
+  //  },
+  //  component: HomeView,
+  //},
   {
     path: '/',
-    name: 'home',
-    component: HomeView,
-  },
-  {
-    path: '/about',
     name: 'about',
     component: () => import('../views/AboutView.vue'),
   },
@@ -23,14 +29,22 @@ const routes = [
     component: () => import('../views/KebabView.vue'),
   },
   {
-    path: '/gallery',
-    name: 'gallery',
+    path: '/library',
+    name: 'library',
     component: GalleryView
   },
   {
     path: '/input',
     name: 'input',
     component: InputView
+  },
+  {
+    path: '/widgets',
+    name: 'widgets',
+    meta: {
+      background: BackgroundWidgets
+    },
+    component: WidgetsView
   },
   {
     path: '/gallery/:id',
@@ -43,7 +57,7 @@ const routes = [
     name: 'script',
     component: DownloadView
   },
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView }, // last resort fallback 404
 ]
 
 const router = createRouter({
@@ -55,18 +69,14 @@ router.beforeEach(async (to, from, next) => {
   const isNotFoundRoute =
     to.matched.length === 1 && to.matched[0].name === 'NotFound'
 
-  // If it's not a "real 404" route, proceed normally
   if (!isNotFoundRoute) {
     return next()
   }
 
-  // 🚫 PREVENT INFINITE LOOP:
-  // If the URL already points to a .html file, don't try to append index.html again
-  if (to.fullPath.endsWith('.html')) {
+  if (to.fullPath.endsWith('.html')) { // fallback html legacy check lmao
     return next()
   }
 
-  // Build fallback static path
   let checkUrl = to.fullPath
   if (checkUrl.endsWith('/')) {
     checkUrl = checkUrl.slice(0, -1)
@@ -77,12 +87,10 @@ router.beforeEach(async (to, from, next) => {
     const response = await fetch(checkUrl, { method: 'HEAD' })
 
     if (response.ok) {
-      // Static file exists → load it directly (hard reload to bypass SPA routing)
       window.location.href = checkUrl
       return
     }
 
-    // No static file found → show Vue's NotFoundView
     next()
 
   } catch (err) {
