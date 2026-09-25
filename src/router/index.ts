@@ -40,7 +40,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/input',
     name: 'input',
-    component: InputView
+    component: InputView,
+     meta: {
+      background: BackgroundAbout
+    },
   },
   {
     path: '/widgets',

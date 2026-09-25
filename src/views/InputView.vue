@@ -95,6 +95,7 @@ div.toolbar {
 
 .input {
   border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: var(--darker-gray);
   border-radius: 2px;
   height: calc(100vh - 14rem);
 }
@@ -116,7 +117,7 @@ div.toolbar {
   transition: background-color 0.1s linear;
 
   border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--darker-gray);
 }
 
 

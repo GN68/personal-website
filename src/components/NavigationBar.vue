@@ -1,13 +1,22 @@
 <!-- src/components/NavBar.vue -->
 <template>
   <div class="nav-bar">
-    <ContentPanel>
+    <audio
+    ref="audio"
+    :src="musicFile"
+    loop
+  />
+    <ContentPanel :width="50">
       <div class="separator">
         <LogoGN />
-        <div class="nav-links">
-          <RouterLink to="/" class="link">About</RouterLink>
-          <RouterLink to="/library" class="link">Library</RouterLink>
-          <RouterLink to="/widgets" class="link">Widgets</RouterLink>
+        <div class="combiner">
+          <div class="nav-links">
+            <RouterLink to="/" class="link">About</RouterLink>
+            <RouterLink to="/library" class="link">Library</RouterLink>
+          </div>
+          <button @click="toggleMusic">
+            {{ isPlaying ? '♫+' : '♫×' }}
+          </button>
         </div>
       </div>
     </ContentPanel>
@@ -20,10 +29,48 @@
 import { RouterLink } from 'vue-router'
 import LogoGN from './LogoGN.vue';
 import ContentPanel from './ContentPanel.vue';
+import musicFile from '@/assets/tuna_sandwitch.ogg'
+
+import { ref } from 'vue'
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const audio: any = ref(null)
+const isPlaying = ref(false)
+
+function toggleMusic() {
+  if (isPlaying.value) {
+    audio.value.pause()
+    isPlaying.value = false
+  } else {
+    audio.value.play()
+    isPlaying.value = true
+  }
+}
+
+
 </script>
 
 
-<style>
+<style scoped>
+.combiner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:0.5rem;
+  height: 100%;
+}
+button {
+  border: 1px solid rgba(255, 255, 255, 0.121);
+  background-color: var(--darker-gray);
+  border-radius: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
 
 .separator {
   width: 100%;

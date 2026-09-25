@@ -29,7 +29,10 @@ const isHovered = ref(false)
 }
 
 .logo {
-  height: 100%;
+  padding-top: 0.25rem;
+  padding-left: 0.5rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 
@@ -37,16 +40,21 @@ const isHovered = ref(false)
   font-weight: bold;
   font-size: 16pt;
   position: relative;
-  width: calc(var(--nav-height) - 10px + 8rem); /* lock size */
-  height: 1.5em;
-  display: inline-block;
+  width: calc(var(--nav-height) - 10px + 10rem); /* lock size */
+  height: 2.5rem;
+  border-radius: 3rem;
+  justify-content: baseline;
+  display: flex;
+  flex-direction: column;
   user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.101);
+  background-color: var(--darker-gray);
 }
 
 .text-layer {
   position: absolute;
-  top: 0;
-  left: calc(var(--nav-height) - 10px);
+  top: 0.3rem;
+  left: calc(4.5rem - 20px);
   right: 0;
   bottom: 0;
 
