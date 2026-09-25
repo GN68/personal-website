@@ -36,7 +36,11 @@ import ContentPanel from './ContentPanel.vue';
 
 .nav-links {
   width: fit-content;
-  height: 100%;
+  height: 2.5rem;
+  background: var(--darker-gray);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.196);
+  border: 1px solid rgba(255, 255, 255, 0.121);
+  border-radius: 3rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -48,10 +52,6 @@ import ContentPanel from './ContentPanel.vue';
 }
 
 .nav-bar {
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--clr-outline);
-
   position: fixed;
   top: 0;
   width: 100vw;
@@ -83,6 +83,7 @@ div.content {
 }
 
 .link {
+  border-radius: 4rem;
   box-sizing: border-box;
   position: relative;
   color: var(--clr-text);
@@ -91,14 +92,30 @@ div.content {
   width: 6rem;
   background-color: transparent;
   justify-content: center;
-  height: 100%;
+  height: 2.5rem;
   display: flex;
   align-items: center;
 }
 
 .link.router-link-active {
-  background-color: var(--light-green);
+  background-image: linear-gradient(var(--green),var(--light-green));
   color: black;
+  animation: buttonPress 0.1s;
 }
 
+
+@keyframes buttonPress {
+  0%  {
+    background: black;
+    color: white;
+  }
+  25%   { 
+    background: white;
+    color: black;
+  }
+  50% {
+    background: black;
+    color: white;
+  }
+}
 </style>

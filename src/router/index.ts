@@ -8,6 +8,7 @@ import DownloadView from '../views/DownloadView.vue'
 import WidgetsView from '@/views/WidgetsView.vue'
 import BackgroundGrid from '@/components/backgrounds/BackgroundGrid.vue'
 import BackgroundWidgets from '@/components/backgrounds/backgroundWidgets.vue'
+import BackgroundAbout from '@/components/backgrounds/backgroundAbout.vue'
 
 const routes: RouteRecordRaw[] = [
   //{
@@ -22,6 +23,9 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     name: 'about',
     component: () => import('../views/AboutView.vue'),
+     meta: {
+      background: BackgroundAbout
+    },
   },
   {
     path: '/vent',
