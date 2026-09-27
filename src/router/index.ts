@@ -11,16 +11,13 @@ import BackgroundWidgets from '@/components/backgrounds/backgroundWidgets.vue'
 import BackgroundAbout from '@/components/backgrounds/backgroundAbout.vue'
 
 const routes: RouteRecordRaw[] = [
-  //{
-  //  path: '/',
-  //  name: 'home',
-  //  meta: {
-  //    background: BackgroundGrid
-  //  },
-  //  component: HomeView,
-  //},
   {
     path: '/',
+    name: 'home',
+    component: HomeView,
+  },
+  {
+    path: '/about',
     name: 'about',
     component: () => import('../views/AboutView.vue'),
      meta: {
@@ -35,7 +32,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/library',
     name: 'library',
-    component: GalleryView
+    component: GalleryView,
+    meta: {
+      background: BackgroundGrid
+    },
   },
   {
     path: '/input',
@@ -57,7 +57,10 @@ const routes: RouteRecordRaw[] = [
     path: '/gallery/:id',
     name: 'gallery-item',
     component: GalleryItemView,
-    props: true
+    props: true,
+    meta: {
+      background: BackgroundGrid
+    },
   },
   {
     path: '/script',

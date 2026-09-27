@@ -11,10 +11,11 @@
         <LogoGN />
         <div class="combiner">
           <div class="nav-links">
-            <RouterLink to="/" class="link">About</RouterLink>
+            <RouterLink to="/about" class="link">About</RouterLink>
+            <RouterLink to="/" class="link">Home</RouterLink>
             <RouterLink to="/library" class="link">Library</RouterLink>
           </div>
-          <button @click="toggleMusic">
+          <button @click="toggleMusic" style="visibility: hidden;">
             {{ isPlaying ? '♫+' : '♫×' }}
           </button>
         </div>
