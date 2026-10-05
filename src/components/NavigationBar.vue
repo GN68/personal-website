@@ -15,7 +15,7 @@
             <RouterLink to="/" class="link">Home</RouterLink>
             <RouterLink to="/library" class="link">Library</RouterLink>
           </div>
-          <button @click="toggleMusic" style="visibility: hidden;">
+          <button @click="toggleMusic">
             {{ isPlaying ? '♫+' : '♫×' }}
           </button>
         </div>
@@ -30,7 +30,7 @@
 import { RouterLink } from 'vue-router'
 import LogoGN from './LogoGN.vue';
 import ContentPanel from './ContentPanel.vue';
-import musicFile from '@/assets/tuna_sandwitch.ogg'
+import musicFile from '@/assets/Port Elpis OST - Loop.ogg'
 
 import { ref } from 'vue'
 
