@@ -1,11 +1,14 @@
----@diagnostic disable: param-type-mismatch
 local window = js.global
 local document = window.document
+local localStorage = window.localStorage
 
+local STORAGE_KEY = "workspace"
 
 local input = document:getElementById("input")
 local logs = document:getElementById("logs")
-local sendButton = document:getElementById("send")
+local runButton = document:getElementById("send")
+local saveButton = document:getElementById("save")
+local openButton = document:getElementById("open")
 
 function print(...)
 	local concat = "\n"
@@ -14,6 +17,10 @@ function print(...)
 		concat = concat .. (i == 1 and '' or "  ") .. tostring(tbl[i])
 	end
 	logs.textContent = logs.textContent .. concat
+end
+
+function clear()
+	logs.textContent = ""
 end
 
 local function generateTable(var, depth, content, spaces)
@@ -66,14 +73,16 @@ function printTable(tbl, depth)
 	print(table.concat(content))
 end
 
-print(_G._COPYRIGHT)
 
-sendButton:addEventListener("click", function()
+
+print(_G._COPYRIGHT)
+print("GNanimates Copyright (C) 2022-2026 GNanimates. All rights reserved")
+
+local function submit()
 	local inputMethod = load(input.value,"input","t",_G)
 	local inputMethodReturns = load("return "..input.value,"input","t",_G)
 	print("> " .. input.value)
-
-
+	
 	local data = table.pack(pcall(inputMethodReturns))
 	if not data[1] then -- is not OK
 		data = table.pack(pcall(inputMethod))
@@ -85,4 +94,34 @@ sendButton:addEventListener("click", function()
 	else
 		print(table.unpack(data, 2, data.n))
 	end
+end
+
+
+local function save()
+	
+end
+
+
+runButton:addEventListener("click", function()
+	submit()
+end)
+
+input:addEventListener("keydown",function (self,event)
+	if event.key == "Enter" and event.ctrlKey then
+		submit()
+		event.preventDefault()
+	end
+end)
+
+local savedContent = localStorage:getItem(STORAGE_KEY)
+	if savedContent then
+		input.value = savedContent
+	end
+
+input:addEventListener("input", function (self)
+	localStorage:setItem(STORAGE_KEY,self.value)
+end)
+
+saveButton:addEventListener("click", function()
+	
 end)

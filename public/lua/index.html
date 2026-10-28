@@ -1,99 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Lua 5.3</title>
+	<title>Lua 5.3 Sandbox</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-	<style>
-		@import "../styles/colors.css";
-		* {
-			font-family: "JetBrains Mono", serif;
-		}
-		body {
-			display: flex;
-			box-sizing: border-box;
-			flex-direction: column;
-			gap: 1rem;
-			
-			min-height: 100vh;
-			margin: 0;
-			padding: 1rem;
-			
-			background-color: var(--darker-gray);
-		}
-		div {
-			color: white;
-		}
-		textarea {
-			color: white;
-			background-color: var(--dark-gray);
-			border-radius: 0.25rem;
-			border: 2px solid rgba(255, 255, 255, 0.195);
-			padding: 0.5rem;
-			
-			position: fixed;
-			bottom: 1rem;
-			left: 1rem;
-			right: 1rem;
-			top: 80%;
-			resize: none;
-		}
-		
-		input[type=button] {
-			background-color: var(--green);
-			position: absolute;
-			bottom: calc(25% - 1.5rem);
-			width: 8rem;
-			right: 1rem;
-			height: 2rem;
-			border: 2px solid rgba(255, 255, 255, 0.244);
-			border-radius: 0.5rem;
-		}
-		
-		@media screen and (max-aspect-ratio: 2/3) {
-			textarea {
-				top: 75%;
-				left: 0;
-				right: 0;
-				bottom: 0;
-			}
-			input[type=button] {
-				position: fixed;
-				bottom: calc(25% + 1rem);
-				right: 1rem;
-				width: 5rem;
-				height: 3rem;
-			}
-		}
-		
-		textarea:focus {
-			outline: none;
-			border: 2px solid rgba(255, 255, 255, 0.397);
-		}
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+		rel="stylesheet">
+	<style>:root{--light-yellow:#ffeb57;--yellow:#ffc825;--dark-yellow:#ffa214;--darker-yellow:#ed7614;--white:#fff;--lighter-blue-gray:#c7cfdd;--light-blue-gray:#92a1b9;--blue-gray:#424c6e;--dark-blue-gray:#2a2f4e;--darker-blue-gray:#1a1932;--darkest-blue-gray:#0e071b;--black:#000;--darker-gray:#131313;--dark-gray:#272727;--gray:#3d3d3d;--light-gray:#5d5d5d;--lighter-gray:#858585;--bright-gray:#b4b4b4;--darkest-blue:#00396d;--darker-blue:#0069aa;--dark-blue:#0098dc;--blue:#00cdf9;--light-blue:#0cf1ff;--lighter-blue:#94fdff;--lighter-red:#f68187;--light-red:#f5555d;--red:#ea323c;--dark-red:#c42430;--darker-red:#891e2b;--darkest-red:#571c27;--lighter-green:#d3fc7e;--light-green:#99e65f;--green:#5ac54f;--dark-green:#33984b;--darker-green:#1e6f50;--darkest-green:#0c2e44;--light-orange:#edab50;--orange:#e07438;--dark-orange:#c64524;--darker-orange:#8e251d;--border:#1d2024}*{color:#e6e6fa;font-family:JetBrains Mono,serif}body{box-sizing:border-box;background-color:#292d32;flex-direction:column;gap:1rem;min-height:100vh;margin:0;display:flex}.output{white-space-collapse:preserve;margin-bottom:25%;padding-top:1rem;padding-bottom:10rem;position:absolute;left:calc(50% + 1rem);right:1rem}#workspace{border-right:2px solid var(--border);box-sizing:border-box;flex-direction:column;width:50%;height:100%;display:flex;position:fixed}#navbar{border-bottom:2px solid var(--border);background-color:#a3c8ff12;row-gap:0;width:100%;height:3rem;display:flex}#editor{color:#fff;resize:none;width:100%;height:100%;position:relative}.navbtn{flex:1;display:flex;position:relative}input[type=button]{color:#dcdcdc;background-color:#0000;border:none;flex:1;height:100%;margin:0;padding-left:2rem;padding-right:2rem}input[type=button]:hover{background-color:var(--light-green);color:var(--border)}input[type=button]:active{background-color:var(--green)}.keybind{pointer-events:none;color:#858585ab;text-align:center;width:100%;font-size:8pt;position:absolute;bottom:0}input[type=button]:hover .keybind{color:#000!important}@media screen and (aspect-ratio<=1){.editor{inset:75% 0 0}#workspace{border-top:2px solid var(--border);box-sizing:border-box;border-right:0;flex-direction:column;width:100%;height:50%;display:flex;position:fixed;bottom:0}.output{white-space-collapse:preserve;margin-bottom:25%;position:absolute;left:1rem;right:1rem}}#highlight,#input{box-sizing:border-box;font:inherit;letter-spacing:normal;tab-size:2;white-space:pre;border:0;margin:0;padding:12px;position:absolute;inset:0;overflow:auto}#highlight pre{font:inherit;margin:0;padding:0;overflow:visible;background:0 0!important}#highlight{pointer-events:none}#input{color:#0000;caret-color:#fff;resize:none;z-index:1;outline:none;background:0 0!important}#input::selection{background:#78a0ff59}</style>
+	<script src="fengari-web.js" type="text/javascript"></script>
 
-		
-		input[type=button]:hover {
-			background-color: var(--light-green);
-		}
-		input[type=button]:active {
-			background-color: var(--green);
-		}
-		
-		#logs {
-			white-space-collapse: preserve;
-			margin-bottom: 25%;
-		}
-	</style>
-	<script src=" https://cdn.jsdelivr.net/npm/fengari-web@0.1.4/dist/fengari-web.min.js "></script>
+  <script type="module" crossorigin src="./editor-assets/index-IeO0rw5Q.js"></script>
+  <link rel="modulepreload" crossorigin href="./editor-assets/rolldown-runtime-B0fFmPBj.js">
 </head>
+
 <body>
-	<div id="logs">Lua 5.3 Sandbox
+	<div id="workspace">
+		<div id="navbar">
+			<div class="navbtn">
+				<input type="button" id="send" value="Run">
+				<div class="keybind">Ctrl + Enter</div>
+			</div>
+			<div class="navbtn">
+				<input type="button" id="save" value="Save">
+				<div class="keybind">Ctrl + S</div>
+			</div>
+			<div class="navbtn">
+				<input type="button" id="open" value="Open">
+				<div class="keybind">Ctrl + O</div>
+			</div>
+			
+			<div class="navbtn">
+				<input type="button" id="home" value="Home">
+			</div>
+		</div>
+		<div id="editor">
+			<div id="highlight" aria-hidden="true"></div>
+			<textarea id="input" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
+		</div>
 	</div>
-	<input type="button" id="send" value="Send">
-	<textarea name="input" id="input"></textarea>
-	<script src="test.lua" type="application/lua" async></script>
+	<div id="logs" class="output">Lua 5.3 Sandbox</div>
+
+
+	<script src="index.lua" type="application/lua"></script>
 </body>
+
 </html>

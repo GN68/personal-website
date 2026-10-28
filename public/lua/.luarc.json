@@ -1,0 +1,12 @@
+{
+	"runtime": {
+		"version": "Lua 5.3"
+	},
+	"workspace": {
+		"library": ["${3rd}/LuaPanda/stdlib", "."],
+		"checkThirdParty": false
+	},
+	"diagnostics": {
+		"globals": ["js"]
+	}
+}

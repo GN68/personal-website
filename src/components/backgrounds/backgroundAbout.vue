@@ -12,6 +12,8 @@
       <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima totam, earum autem eaque temporibus distinctio consectetur veritatis modi tempora quis et! Nostrum porro beatae, numquam ratione atque eos quae itaque.</h2>
       <h1>ABOUT ME ABOUT ME ABOUT ME ABOUT ME </h1>
       <h2>na finalize mo na ba? na finalize mo na ba? na finalize mo na ba? na finalize mo na ba?</h2>
+      <h1>ABOUT ME ABOUT ME ABOUT ME ABOUT ME </h1>
+      <h2>na finalize mo na ba? na finalize mo na ba? na finalize mo na ba? na finalize mo na ba?</h2>
     </div>
   </div>
 </template>
