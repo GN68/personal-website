@@ -44,7 +44,7 @@ const categories = [
 {
     name: 'My Games',
     description: 'Games I made during game jams! they are all completely free to play',
-    columns: 2,
+    columns: 3,
     items: [
       //{ 
       //  id: 'https://gnui.itch.io/the-great-box-chase',
@@ -118,6 +118,13 @@ const categories = [
         description: 'Archive · Godot',
         tags: ["Website","Archive"],
         img: '/thumbnails/classic.jpg',
+      },
+      { 
+        id: '/lua',
+        name: 'Lua 5.3 Sandbox',
+        description: 'Sandbox · Lua Scripting',
+        tags: ["javascript","lua","Tool"],
+        img: '/thumbnails/luasandbox.webp',
       }
     ]
   },
